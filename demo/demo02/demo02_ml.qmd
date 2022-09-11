@@ -40,7 +40,7 @@ Para este ejemplo, se usan los datos de una empresa aseguradora. Consiste en una
 Consiste de 7 variables:
 
 | Variable   | Descripción                                                                             |
-|------------|-----------------------------------------------------------------------------------------|
+|--------------|----------------------------------------------------------|
 | *age*      | Edad del asegurado.                                                                     |
 | *sex*      | Sexo del asegurado.                                                                     |
 | *bmi*      | Índice de Masa Corporal de la persona.                                                  |
@@ -291,7 +291,7 @@ reg03 <- lm(charges ~ bmi, data=dat.smoker)
 
 Las estimaciones para los parámetros del modelo 3: el valor de la intersección $( b= `r reg03[[1]][1]`)$ y el efecto estimado del IMC sobre el costo médico individual de los asegurados $(m=`r reg03[[1]][2]`)$.
 
-El resultados del coeficiente de correlación $R=`r cor(insurance$age,insurance$bmi)`$ y el coeficiente de determinación $R^2 =`r cor(insurance$age,insurance$bmi)^2`$ sugieren un asociación muy alta de las variables.
+El resultados del coeficiente de correlación $R=`r cor(dat.smoker$bmi,dat.smoker$charges)`$ y el coeficiente de determinación $R^2 =`r cor(dat.smoker$bmi,dat.smoker$charges)^2`$ sugieren un asociación muy alta de las variables.
 
 ### Gráficos de diagnóstico
 
