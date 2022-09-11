@@ -1,0 +1,17 @@
+  
+- title: Demostraciones
+  icon: ./fig/script_code_coding.png
+  links:
+    - text: Análisis Exploratorio de Datos
+      href: ../demo/demo01/demo01_aed.qmd
+    - text: Análisis de regresión lineal
+      href: ../demo/demo02/demo02_ml.qmd
+- title: Presentaciones
+  icon: ./fig/Presentation_Slideshow.png
+  links:
+    - text: Análisis Exploratorio de datos
+      #href: ../temas/c01_intro.qmd
+    - text: Relación entre variables cuantitativas
+      href: ../press/press03/l03_reglm.qmd
+
+    

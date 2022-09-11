@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "GEI-411"
+  image: ./fig/ecg_una.png
+  page-navigation: true
+  logo: ./fig/ecg_white.png
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - text: "Demostraciones en R"
+        menu:
+          - ./demo/demo01/demo01_aed.qmd
+          - ./demo/demo02/demo02_ml.qmd
+      - text: "Presentaciones"
+        menu:
+          - ./press/press03/l03_reglm.qmd
+      - about.qmd
+  right:
+      - icon: twitter
+        href: https://twitter.com/Sethraz
+        aria-label: Sethraz Twitter
+      - icon: github
+        href: https://github.com/sethraz/GEI-429-Teledeteccion
+        aria-label: Curso Métodos Cuantitativos GitHub
+
+  sidebar:
+    - id: inicio
+      title: "Contenidos"
+      style: "docked"
+      search: true
+      contents: 
+        - section: "Demostraciones"
+          contents: 
+            - ./demo/demo01/demo01_aed.qmd
+            - ./demo/demo02/demo02_ml.qmd
+        - section: "Presentaciones"
+          contents: 
+            - ./press/press03/l03_reglm.qmd
+            
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+editor: visual
+

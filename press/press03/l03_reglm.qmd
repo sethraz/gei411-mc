@@ -1,0 +1,211 @@
+---
+title: "Relación entre variables cuantitativas"
+subtitle: "Leccion 03"
+author: "Omar E. Barrantes Sotela"
+format:
+  revealjs: 
+    slide-number: true
+    #chalkboard: 
+    #  buttons: false
+    preview-links: auto
+    logo: fig/ecguna.svg
+    css: styles.css
+    footer: "Escuela de Ciencias Geográficas"
+    self-contained: true
+lang: es
+bibliography: Ref.bib
+csl: apa.csl
+---
+
+## Regresión lineal de variables
+
+La **correlación** indica la [**fuerza**]{style="color:red;"} y la [**dirección**]{style="color:green;"} de una relación lineal y [**proporcionalidad**]{style="color:blue;"} entre dos variables estadísticas.
+
+Se considera que dos variables cuantitativas están correlacionadas cuando los valores de una de ellas varían sistemáticamente con respecto a los valores homónimos de la otra.
+
+> Si tenemos dos variables (A y B) existe correlación entre ellas, sí al disminuir los valores de A lo hacen también los de B y viceversa.
+
+## Importante
+
+La **correlación** entre dos variables **no implica**, por sí misma, ninguna relación de **causalidad**.
+
+## El Coeficiente de correlación
+
+El **coeficiente de correlación** de Pearson ($R$), se usa para cuantificar la fuerza de la relación lineal entre dos variables cuantitativas.
+
+El **coeficiente** $R$ oscila entre $\{-1 : 1\}$
+
+## Características de $R$
+
+1.  Es independiente de cualquier unidad usada para medir las variables.
+
+2.  Su valor se altera de forma importante ante la presencia de un valor extremo, como sucede con la desviación típica.
+
+::: notes
+Ante estas situaciones conviene realizar una transformación de datos que cambia la escala de medición y modera el efecto de valores extremos (como la transformación logarítmica).
+:::
+
+3.  Solo establece la relación a una línea recta.
+
+::: notes
+Dos variables pueden tener una relación curvilínea fuerte, a pesar de que su correlación sea pequeña. Por tanto cuando analicemos las relaciones entre dos variables debemos representarlas gráficamente y posteriormente calcular el coeficiente de correlación.
+:::
+
+4.  El coeficiente de correlación no se debe extrapolar más allá del rango de valores observado de las variables.
+
+::: notes
+La relación existente entre X e Y puede cambiar fuera de dicho rango.
+:::
+
+5.  La correlación no implica causalidad.
+
+::: notes
+La causalidad es un juicio de valor que requiere más información que un simple valor cuantitativo de un coeficiente de correlación.
+:::
+
+## Ecuación
+
+Existen diversos coeficientes que miden el grado de correlación, adaptados a la naturaleza de los datos. El más conocido es el *coeficiente de correlación de Pearson*, que se obtiene dividiendo la covarianza de dos variables entre el producto de sus desviaciones estándar.
+
+$$R_{xy}={\frac {\sum x_{i}y_{i}-n{\bar {x}}{\bar {y}}}{(n-1)s_{x}s_{y}}}={\frac {n\sum x_{i}y_{i}-\sum x_{i}\sum y_{i}}{{\sqrt {n\sum x_{i}^{2}-(\sum x_{i})^{2}}}~{\sqrt {n\sum y_{i}^{2}-(\sum y_{i})^{2}}}}}$$
+
+## Otras formas de cálculo
+
+-   Coeficiente de correlación de Spearman
+-   Correlación de Kendall
+-   Correlación canónica
+
+## Consideraciones
+
+-   Las dos variables deben proceder de una muestra aleatoria de individuos.
+-   Al menos una de las variables debe tener una distribución normal en la población de la cual la muestra procede.
+
+## Interpretación de la fuerza
+
+| Valor               | Grado de relación lineal    |
+|---------------------|-----------------------------|
+| $R = 1$             | Es lineal perfecta.         |
+| $R = \{0.8:0.99\}$  | Es muy fuerte.              |
+| $R = \{0.65:0.8\}$  | Es fuerte.                  |
+| $R = \{0.45:0.64\}$ | Es moderada.                |
+| $R = \{0.2:0.44\}$  | Es débil.                   |
+| $R = \{0.01:0.20\}$ | Es muy débil                |
+| $R = 0$             | No existe asociación lineal |
+
+## Interpretación del sentido
+
+La **dirección** se indica por el signo (+/-) y puede observarse en la pendiente de la ecuación de la recta o en el gráfico.
+
+| Signo | Dirección                                                           |
+|-------|---------------------------------------------------------------------|
+| $+$   | Es directa. Al aumentar una variable la otra aumenta.               |
+| $-$   | Es inversa. Al aumentar una variable la otra decrece (o viceversa). |
+
+## El Coeficiente de determinación
+
+Al elevar al cuadrado el coeficiente de correlación se obtiene el **coeficiente de determinación** $(R^2)$.
+
+> Indica el **%** de **variabilidad** de la [**variable respuesta**]{style="color:red;"} que se explica por la relación con la [**variable explicativa**]{style="color:blue;"}. Utilizar más variables y mediante análisis multivariado permite identificar el efecto de estas variables en la [**variable respuesta**]{style="color:red;"} [@Bosque1994].
+
+El **coeficiente** $R^2$ oscila entre $\{0:1\}$.
+
+## Demostración del R.
+
+A continuación se realiza una demostración simple en R: En este caso son datos de una estación meteorológica con 111 registros de las variables: ozono, radiación solar, temperatura y viento.
+
+-   Se cargan las librerías y los datos:
+
+```{r }
+#| label: datos
+#| message: false
+#| echo: true
+#| code-line-numbers: "7,8"
+
+library(car)      # funciones para el ajuste de modelos de regresión
+library(visreg)   # visualiza regresiones
+library(lmtest)   # prueba modelos lineales
+library(corrplot) # gráfico correlaciones
+library(corrgram) # más gráficos de correlaciones
+
+datos <- read.table("ozono.txt", header = TRUE, 
+                    sep="\t", na.strings="NA", dec=".", strip.white=TRUE)
+
+
+```
+
+## Visualización de los datos
+
+```{r}
+#| label: fig-vis01
+#| fig-cap: Gráfico de dispersión entre las variables
+#| message: false
+#| echo: true
+#| code-line-numbers: true
+
+scatter.smooth(x=datos$ozono, y = datos$temperatura, main = "Ozono ~ Temperatura", xlab="Ozono (O3)", ylab = "Temperatura (°F)",
+               lpars = list(col = "red", lwd = 3, lty = 3))
+
+```
+
+## El modelo de regresión lineal
+
+```{r}
+#| label: lm01
+#| message: false
+#| echo: true
+#| code-line-numbers: "|7|8"
+
+m.reg1 <- lm(temperatura ~ ozono  , data = datos)
+summary(m.reg1)
+```
+
+## Gráficos para el análisis de regresión lineal
+
+```{r}
+#| label: fig-lm01
+#| fig-cap: Gráfico de regresión
+#| message: false
+#| echo: true
+#| code-line-numbers: true
+
+avPlots(m.reg1, id.n = 2 ,  id.cex = 0.7 ) # Grafico de regresion
+
+```
+
+## Gráfico de residuales
+
+```{r}
+#| label: fig-residuales
+#| fig-cap: Gráfico de residuales
+#| message: false
+#| echo: true
+#| code-line-numbers: true
+#| 
+residualPlots(m.reg1)
+```
+
+## Gráficos de diagnóstico
+
+```{r}
+#| label: fig-influencia01
+#| fig-cap: Gráfico de diagnóstico
+#| message: false
+#| echo: true
+#| code-line-numbers: true
+influenceIndexPlot(m.reg1,id=TRUE)
+
+```
+
+## Gráficos de influencia
+
+```{r}
+#| label: fig-influencia02
+#| fig-cap: Gráfico de influencia
+#| message: false
+#| echo: true
+#| code-line-numbers: true
+
+influencePlot(m.reg1, id=list(method="identify"))
+```
+
+## Referencias

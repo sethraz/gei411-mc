@@ -1,0 +1,36 @@
+---
+pagetitle: "GEI-411"
+page-layout: article
+anchor-sections: false
+author: "Geóg. Omar E. Barrantes Sotela"
+lang: es
+toc: true
+css: index.css
+editor: source
+title: Métodos Cuantitativos y Modelos en Geografía
+listing:
+  id: contenidos
+  contents: contenidos.yml
+description: |
+  Curso de Métodos Cuantitativos y Modelos en Geografía para el Bachillerato de Ciencias Geográficas con énfasis en Ordenamiento Territorial, UNA. Heredia, Costa Rica.
+image: ./fig/ecg_white.png
+---
+
+![](fig/headings01.png){fig-align="center"}
+
+::: content-block
+## Descripción del curso
+
+El curso brinda a los estudiantes los conocimientos teóricos y las herramientas técnicas utilizadas en el análisis cuantitativo de temas geográficos. La primera parte del curso está enfocada a la aplicación de la técnica multivariante de datos aplicada al análisis geográfico. La segunda parte se refiere al uso de indicadores socioeconómicos y ambientales empleados en el análisis espacial. La tercera parte aborda el estudio y aplicación de los modelos más utilizados en geografía y sus aplicaciones. La práctica de este curso consiste en la aplicación de cada una de estas técnicas a casos de estudio relacionados con la temática geográfica para comprender la utilidad de ellas en la solución de problemas geográficos diferentes.
+
+## Objetivos
+
+-   Desarrollar destrezas y habilidad en el análisis espacial de problemas geográficos mediante métodos y modelos cuantitativos.
+
+### Objetivos específicos
+
+-   Analizar las distintas técnicas numéricas y cuantitativas del análisis de datos geográficos.
+-   Aplicar métodos y modelos numéricos para cuantificar y aproximar el comportamiento espacial de los datos geográficos.
+-   Cuantificar el comportamiento geográfico de ciertas variables mediante métodos y modelos computacionales.
+-   Utilizar las herramientas de inferencia estadística para interpretar y analizar los datos de una investigación científica.
+:::

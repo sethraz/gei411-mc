@@ -1,0 +1,261 @@
+---
+title: "Análisis Exploratorio de Datos"
+author: "Omar E. Barrantes Sotela"
+date: "2022-08-08"
+lang: es
+csl: apa.csl
+bibliography: Ref.bib
+format: 
+  html:
+    code-fold: false
+    code-tools: true
+self-contained: true
+editor: visual
+---
+
+# Introducción
+
+El Análisis Exploratorio de Datos (AED) es un conjunto de métodos y técnicas estadísticas, que tienen como propósito el familiarizarse con los datos de manera básica y determinar el tipo de relaciones entre las variables analizadas, si es que existen. También proporciona métodos sistemáticos para la organización y preparación de la información, detectar fallos en el diseño metodológico de recolección de datos, tratamiento y evaluación de datos faltantes o perdidos (*missing data*), identificación de casos atípicos (*outliners*), saltos o discontinuidades, concentraciones de valores, forma de distribución y comprobación de supuestos subyacentes en otras técnicas multivariantes [@Salvador2003].
+
+# Actividades
+
+Comente y analice los resultados obtenidos en R. Indique ventajas y desventajas de realizar un AED. Elabore el análisis de resultados siguiendo como base las siguientes preguntas:
+
+        1. La tendencia espacial puede confirmarse usando herramientas de visualización en los programas utilizados. ¿En qué casos no es posible?
+        2. ¿Qué diferencias observa entre los elementos o representaciones gráficas realizados? NOTA: Tome como ejemplo los histogramas realizados.
+        3. En el caso de del diagrama de caja ¿Hay observaciones atípicas?
+        4. Refiérase a la utilidad de los diferentes paquetes empleados R, para el análisis de datos geoestadísticos. 
+            
+
+# Estudio de caso
+
+Para desarrollar este ejemplo se utilizará el conjunto de datos del acuífero Wolfcamp al oriente de Texas [@Cressie1989].
+
+## Contexto de los datos
+
+El condado de Deaf Smith (Texas, en la frontera con Nuevo México) fue seleccionado como un sitio alternativo para un posible depósito de eliminación de desechos nucleares en la década de 1980. Este sitio se abandonó más tarde por motivos de contaminación del acuífero, la fuente de gran parte del suministro de agua para el oeste de Texas. En un estudio realizado por el Departamento de Energía de EE. UU., se obtuvieron datos de carga piezométrica en 161 ubicaciones (distribuidas irregularmente en la península de Texas) mediante la perforación de una tubería estrecha a través del acuífero.
+
+#### Formato
+
+Consiste de 3 variables:
+
+| Variable    | Descripción                                                   |
+|-------------|---------------------------------------------------------------|
+| *utm.este*  | Posición relativa en longitud.                                |
+| *utm.norte* | Posición relativa en latitud.                                 |
+| *head*      | Niveles de cabeza piezométrica (pies sobre el nivel del mar). |
+
+: Tabla de datos del acuífero Wolf Camp.
+
+## Primeros pasos
+
+### Carga las librerias
+
+Se indican las librerias en R a utlizar:
+
+```{r}
+#| label: librerias
+#| warnings: false
+#| message: false
+
+#AED
+library(tidyverse) #*
+library(psych)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(knitr)
+
+```
+
+### Apertura de datos
+
+Posteriormente se carga el archivo de trabajo en R y se cambian los nombres de la tabla para que sean más manejables.
+
+```{r}
+#| label: fileopen
+acuifero <- read.table("aquifer.txt", header=TRUE, sep="\t",
+      na.strings="NA", dec=".", strip.white=TRUE)
+
+names(acuifero) <- c("este","norte","cabeza")
+
+```
+
+## Descripción de los datos
+
+### Cuadros estadísticos
+
+Cualquier serie estadística sea cuantitativa, cualitativa, geográfica o cronológica, se convierte en un cuadro si reúne ciertas condiciones de forma, ya que los datos deben estar dispuestos de manera que sea posible interpretarlos de forma rápida para extraer conclusiones sin dificultad [@Moya2010].
+
+Los cuadros de resumen son para propósitos especiales, y tienen un objeto concreto: la información se coloca de tal manera que destaque lo que se desea resaltar y son de poca extensión e incluyen métricas específicas.
+
+Se realiza un resumen estadístico mediante dos métodos en R:
+
+::: {#res_stat .panel-tabset}
+## Libreria `dplyr`
+
+```{r}
+#| label: tbl-descrip01
+#| tbl-cap: Resumen estadístico de la variable cabeza piezométrica
+
+df.stats <- acuifero |>
+          #dplyr::select(cabeza) |>
+          summarise(min = min(cabeza),
+                    q25 = quantile(cabeza, 0.25), 
+                    median = median(cabeza), 
+                    q75 = quantile(cabeza, 0.75), 
+                    max = max(cabeza),
+                    mean = mean(cabeza,na.rm = TRUE), 
+                    sd = sd(cabeza,na.rm = TRUE),
+                    n = n())
+kable(df.stats)
+```
+
+## Libreria `psych`
+
+```{r}
+#| label: tbl-descrip02
+#| tbl-cap: Resumen estadístico de las variables
+#| message: false
+
+kable(describe(acuifero))
+```
+:::
+
+### Distribuciones de frecuencia
+
+Las distribuciones simples de frecuencia son muy útiles para apreciar el comportamiento de una característica del objeto de estudio.
+
+Observar la distribución de los datos es posible mediante: un histograma, un gráfico de densidad o un gráfico de caja.
+
+```{r}
+#| label: fig-distribucion
+#| fig-cap: Histograma de los datos
+#| fig-subcap: 
+#|  - Histograma y gráfico de densidad
+#|  - Gráfico de caja
+#| layout-ncol: 2
+
+ggplot(acuifero, aes(x=cabeza)) +
+  geom_histogram(aes(y = ..density..), 
+                 bins = 10,
+                 color = "black", fill="white") +
+  geom_density(alpha=.2, fill="#FF6666") + 
+  labs(x = "Tabla de agua [pies]", y = "Frecuencia") +
+  theme_bw()
+
+ggplot(acuifero, aes(x=cabeza)) +
+  geom_boxplot(outlier.colour="black", 
+               outlier.shape=16,
+               outlier.size=2, notch=FALSE) +
+  labs(x = "Tabla de agua [pies]") +
+  theme_bw()
+
+
+```
+
+### Gráficos de dispersión
+
+Los gráficos de dispersión se utilizan para mostrar relaciones. Muestran cómo están relacionadas dos variables continuas colocando una variable en el *eje x* y una segunda, en el *eje y*.
+
+```{r}
+#| label: fig-graf01
+#| fig-cap: Gráficos de dispersión de los datos
+#| fig-subcap: 
+#|  - Latitud vrs Cabeza piezométrica
+#|  - Longitud vrs Cabeza piezométrica
+#| layout-ncol: 2
+
+plot(acuifero$este, acuifero$cabeza, ylab="cabezas piezometricas",
+xlab= "Latitud", main="")
+plot(acuifero$norte, acuifero$cabeza, ylab="cabezas piezometricas",
+xlab="Longitud", main="")
+
+```
+
+### Análisis de normalidad
+
+La prueba de Shapiro-Wilk es una prueba de normalidad. Se utiliza para determinar si una muestra proviene o no de una distribución normal.
+
+Este tipo de prueba es útil para determinar si un conjunto de datos determinado proviene o no de una distribución normal, que es una suposición común utilizada en muchas pruebas estadísticas, incluidas la regresión, ANOVA, pruebas t-student y muchas otras.
+
+```{r}
+#| label: test-normal
+
+shapiro.test(acuifero$cabeza)
+
+```
+
+::: callout-note
+## Recordatorio
+
+$H_{o}:$ Hipótesis nula, indica que la muestra de los datos proviene de una distribución normal.
+
+$H_{1}:$ Hipótesis alternativa, indica que la muestra de los **no** datos proviene de una distribución normal.
+:::
+
+En este caso la prueba indica que la distribución de los datos **no** coincide con una distribución normal, ya que su $\textrm{p-valor} \leq 0.05$, es menor al valor crítico de decisión ($`r shapiro.test(acuifero[,3])[[2]]` \leq 0.05$).
+
+## Despligues geoespaciales
+
+Genera cuatro gráficos, tres de dispersión y el histograma de las alturas de la cabeza piezométrica del acuífero de Wolfcamp.
+
+```{r}
+library(sf)
+
+sp.acuifero <- st_as_sf(acuifero, coords = c("este", "norte"))
+plot(sp.acuifero)
+
+```
+
+Otra manera es mediante la `library(geoR)`
+
+```{r}
+#| label: fig-map01
+#| fig-cap: Ubicación de los puntos de muestreo
+library(geoR)
+acuifero.geo = as.geodata(acuifero,coords.col=1:2,data.col=3)
+points(acuifero.geo, xlab= "Coordenada x", ylab= "Coordenada y")
+
+```
+
+La representación incluso puede realizarse mediante contornos.
+
+```{r}
+#| label: fig-contorno
+#| fig-cap: Contorno de los sitios de muestreo
+#| 
+library(akima)
+int.aq=interp(x=acuifero$este,y=acuifero$norte,z=acuifero$cabeza)
+contour(int.aq)
+points(acuifero$este,acuifero$norte)
+
+```
+
+Otras formas de representación mediante un interpolador
+
+```{r}
+#| label: fig-interpolador01
+#| fig-cap: Interpolación de los sitios de muestreo
+
+image(int.aq)
+
+```
+
+También, mediante una perspectiva en tres dimensiones del límite superior del acuífero.
+
+```{r}
+#| label: fig-persp3D
+#| fig-cap: Perspectiva en 3D de los sitios de muestreo
+persp(int.aq$x,int.aq$y,int.aq$z,xlab="este" ,ylab="norte",
+      zlab="cabezas piezométricas",phi=30,theta=20,col="lightblue",
+      expand=.5,ticktype="detailed")
+```
+
+# Información de la sesión
+
+```{r}
+sessionInfo()
+```
+
+# Referencias

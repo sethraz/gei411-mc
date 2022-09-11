@@ -1,0 +1,233 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Geóg. Omar E. Barrantes Sotela, M.Sc.",
+    "section": "",
+    "text": "Prof. Omar E. Barrantes Sotela es académico de la Escuela de Ciencias Geográficas desde el 2010. Participante del Programa para la Promoción y Gestión del Ordenamiento Territorial (PROGOT) y coordinador de la Actividad Permanente de Asesorías y Capacitación de la Gestión Territorial."
+  },
+  {
+    "objectID": "about.html#educación",
+    "href": "about.html#educación",
+    "title": "Geóg. Omar E. Barrantes Sotela, M.Sc.",
+    "section": "Educación",
+    "text": "Educación\nUniversidad Nacional, Heredia | Heredia, Costa Rica. Bachiller en Ciencias Geográficas con énfasis en Ordenamiento Territorial | 2009.\nUniversidad Nacional, Heredia | Heredia, Costa Rica. Licenciatura en Ciencias Geográficas con énfasis en Ordenamiento Territorial (Magna Cum Laude) | 2012.\nUniversidad de Costa Rica, San Ramón | Alajuela, Costa Rica. Maestría Académica en Desarrollo Sostenible con énfasis en Conservación de los Recursos Biológicos (Mención de honor) | 2020."
+  },
+  {
+    "objectID": "about.html#experiencia",
+    "href": "about.html#experiencia",
+    "title": "Geóg. Omar E. Barrantes Sotela, M.Sc.",
+    "section": "Experiencia",
+    "text": "Experiencia\n\nEnseñanza Superior Universitaria (2013-presente)\nAcadémico de la Universidad Nacional (UNA) - Escuela de Ciencias Geográficas (ECG-UNA). | Cursos: - Métodos cuantitativos y modelos en Geografía, - Geoestadística II, - Cartografía, - Cartografía Digital y - Teledetección.\n\n\nProgramas Académicos\nPrograma para la Promoción de la Gestión y el Ordenamiento del Territorio (Fase II) (2021-2025). Código: 0082-20.|| Programa para la Promoción de la Gestión y el Ordenamiento del Territorio (2016-2020). Código: 0315-14.\n\n\nProyectos de Investigación\nInvestigador responsable\n\nAsesorías y capacitación en la gestión municipal para el ordenamiento del territorio. (2021 - 2023). Código: 0150-20.\nClima urbano y variabilidad climática en la planificación urbana. Estudio de caso en los centros urbanos de Alajuela y Heredia, Costa Rica. (2016 - 2018). Código: 0384-15.\n\nInvestigador participante\n\nDesarrollo de estrategias y capacidades en adaptación al cambio climático en centros urbanos: caso de estudio Ciudad de San José. (2021-2023). Código (0598-19).\nAsesorías y capacitación en la gestión municipal para el ordenamiento del territorio. (2016 - 2021). Código: 0434-15.\nRed de gestión del riesgo y cambio climático. (2017 - 2019). Código 0508-16.\nSistematización y seguimiento de las experiencias de ordenamiento territorial y planes reguladores en la Escuela de Ciencias Geográficas. (2012 - 2015). Código: 0372-12.\nObservatorio Ambiental - Dimensión: Ordenamiento Territorial. (2010).\n\n\n\nProyectos de Vinculación Externa\n\nEstudios de Planificación y Ordenamiento del Territorio: Upala. Código: 0092-21. (2021 - 2023).\nActualización del Plan Regulador del Cantón de Poás, integrando la variable ambiental. Código: 0302-14. (2016 - 2021).\nOrdenamiento Territorial: Formulación y Evaluación de Planes Reguladores - Plan Regulador de Upala y Guatuso. (2014).\nOrdenamiento Territorial: Formulación y Evaluación de Planes Reguladores - Plan Regulador Los Chiles. (2014)."
+  },
+  {
+    "objectID": "about.html#afiliaciones",
+    "href": "about.html#afiliaciones",
+    "title": "Geóg. Omar E. Barrantes Sotela, M.Sc.",
+    "section": "Afiliaciones",
+    "text": "Afiliaciones\n\nColegio de Profesionales en Geografía de Costa Rica. No.: CPG-0050.\nSETENA. Consultor Ambiental No.: CI-033-11.\nInstituto Panamericano de Geografía e Historia - IPGH}. Miembro.\nAmerican Association of Geographers}. Miembro."
+  },
+  {
+    "objectID": "demo/demo01/demo01_aed.html",
+    "href": "demo/demo01/demo01_aed.html",
+    "title": "Análisis Exploratorio de Datos",
+    "section": "",
+    "text": "El Análisis Exploratorio de Datos (AED) es un conjunto de métodos y técnicas estadísticas, que tienen como propósito el familiarizarse con los datos de manera básica y determinar el tipo de relaciones entre las variables analizadas, si es que existen. También proporciona métodos sistemáticos para la organización y preparación de la información, detectar fallos en el diseño metodológico de recolección de datos, tratamiento y evaluación de datos faltantes o perdidos (missing data), identificación de casos atípicos (outliners), saltos o discontinuidades, concentraciones de valores, forma de distribución y comprobación de supuestos subyacentes en otras técnicas multivariantes (Salvador & Gargallo, 2003)."
+  },
+  {
+    "objectID": "demo/demo01/demo01_aed.html#contexto-de-los-datos",
+    "href": "demo/demo01/demo01_aed.html#contexto-de-los-datos",
+    "title": "Análisis Exploratorio de Datos",
+    "section": "Contexto de los datos",
+    "text": "Contexto de los datos\nEl condado de Deaf Smith (Texas, en la frontera con Nuevo México) fue seleccionado como un sitio alternativo para un posible depósito de eliminación de desechos nucleares en la década de 1980. Este sitio se abandonó más tarde por motivos de contaminación del acuífero, la fuente de gran parte del suministro de agua para el oeste de Texas. En un estudio realizado por el Departamento de Energía de EE. UU., se obtuvieron datos de carga piezométrica en 161 ubicaciones (distribuidas irregularmente en la península de Texas) mediante la perforación de una tubería estrecha a través del acuífero.\n\nFormato\nConsiste de 3 variables:\n\nTabla de datos del acuífero Wolf Camp.\n\n\n\n\n\n\nVariable\nDescripción\n\n\n\n\nutm.este\nPosición relativa en longitud.\n\n\nutm.norte\nPosición relativa en latitud.\n\n\nhead\nNiveles de cabeza piezométrica (pies sobre el nivel del mar)."
+  },
+  {
+    "objectID": "demo/demo01/demo01_aed.html#primeros-pasos",
+    "href": "demo/demo01/demo01_aed.html#primeros-pasos",
+    "title": "Análisis Exploratorio de Datos",
+    "section": "Primeros pasos",
+    "text": "Primeros pasos\n\nCarga las librerias\nSe indican las librerias en R a utlizar:\n\n#AED\nlibrary(tidyverse) #*\nlibrary(psych)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(knitr)\n\n\n\nApertura de datos\nPosteriormente se carga el archivo de trabajo en R y se cambian los nombres de la tabla para que sean más manejables.\n\nacuifero <- read.table(\"aquifer.txt\", header=TRUE, sep=\"\\t\",\n      na.strings=\"NA\", dec=\".\", strip.white=TRUE)\n\nnames(acuifero) <- c(\"este\",\"norte\",\"cabeza\")"
+  },
+  {
+    "objectID": "demo/demo01/demo01_aed.html#descripción-de-los-datos",
+    "href": "demo/demo01/demo01_aed.html#descripción-de-los-datos",
+    "title": "Análisis Exploratorio de Datos",
+    "section": "Descripción de los datos",
+    "text": "Descripción de los datos\n\nCuadros estadísticos\nCualquier serie estadística sea cuantitativa, cualitativa, geográfica o cronológica, se convierte en un cuadro si reúne ciertas condiciones de forma, ya que los datos deben estar dispuestos de manera que sea posible interpretarlos de forma rápida para extraer conclusiones sin dificultad (Moya & Robles, 2010).\nLos cuadros de resumen son para propósitos especiales, y tienen un objeto concreto: la información se coloca de tal manera que destaque lo que se desea resaltar y son de poca extensión e incluyen métricas específicas.\nSe realiza un resumen estadístico mediante dos métodos en R:\n\nLibreria dplyrLibreria psych\n\n\n\ndf.stats <- acuifero |>\n          #dplyr::select(cabeza) |>\n          summarise(min = min(cabeza),\n                    q25 = quantile(cabeza, 0.25), \n                    median = median(cabeza), \n                    q75 = quantile(cabeza, 0.75), \n                    max = max(cabeza),\n                    mean = mean(cabeza,na.rm = TRUE), \n                    sd = sd(cabeza,na.rm = TRUE),\n                    n = n())\nkable(df.stats)\n\n\n\nTabla 1: Resumen estadístico de la variable cabeza piezométrica\n\n\nmin\nq25\nmedian\nq75\nmax\nmean\nsd\nn\n\n\n\n\n1560.05\n1721.17\n1813.6\n1900.98\n2044.76\n1807.787\n116.4985\n161\n\n\n\n\n\n\n\n\n\nkable(describe(acuifero))\n\n\n\nTabla 2: Resumen estadístico de las variables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvars\nn\nmean\nsd\nmedian\ntrimmed\nmad\nmin\nmax\nrange\nskew\nkurtosis\nse\n\n\n\n\neste\n1\n161\n535667.678\n21317.8682\n533366.3\n535375.700\n25496.9245\n500361.34\n574429.56\n74068.22\n0.1145823\n-1.1780101\n1680.083375\n\n\nnorte\n2\n161\n4198439.331\n26995.0560\n4197238.5\n4198175.676\n32686.8822\n4150248.25\n4248312.50\n98064.25\n0.0507206\n-1.1219820\n2127.508454\n\n\ncabeza\n3\n161\n1807.787\n116.4985\n1813.6\n1808.354\n135.7469\n1560.05\n2044.76\n484.71\n-0.0907091\n-0.9560259\n9.181366\n\n\n\n\n\n\n\n\n\n\n\nDistribuciones de frecuencia\nLas distribuciones simples de frecuencia son muy útiles para apreciar el comportamiento de una característica del objeto de estudio.\nObservar la distribución de los datos es posible mediante: un histograma, un gráfico de densidad o un gráfico de caja.\n\nggplot(acuifero, aes(x=cabeza)) +\n  geom_histogram(aes(y = ..density..), \n                 bins = 10,\n                 color = \"black\", fill=\"white\") +\n  geom_density(alpha=.2, fill=\"#FF6666\") + \n  labs(x = \"Tabla de agua [pies]\", y = \"Frecuencia\") +\n  theme_bw()\n\nggplot(acuifero, aes(x=cabeza)) +\n  geom_boxplot(outlier.colour=\"black\", \n               outlier.shape=16,\n               outlier.size=2, notch=FALSE) +\n  labs(x = \"Tabla de agua [pies]\") +\n  theme_bw()\n\n\n\n\n\n\n\n(a) Histograma y gráfico de densidad\n\n\n\n\n\n\n\n(b) Gráfico de caja\n\n\n\n\nFigura 1: Histograma de los datos\n\n\n\n\n\nGráficos de dispersión\nLos gráficos de dispersión se utilizan para mostrar relaciones. Muestran cómo están relacionadas dos variables continuas colocando una variable en el eje x y una segunda, en el eje y.\n\nplot(acuifero$este, acuifero$cabeza, ylab=\"cabezas piezometricas\",\nxlab= \"Latitud\", main=\"\")\nplot(acuifero$norte, acuifero$cabeza, ylab=\"cabezas piezometricas\",\nxlab=\"Longitud\", main=\"\")\n\n\n\n\n\n\n\n(a) Latitud vrs Cabeza piezométrica\n\n\n\n\n\n\n\n(b) Longitud vrs Cabeza piezométrica\n\n\n\n\nFigura 2: Gráficos de dispersión de los datos\n\n\n\n\n\nAnálisis de normalidad\nLa prueba de Shapiro-Wilk es una prueba de normalidad. Se utiliza para determinar si una muestra proviene o no de una distribución normal.\nEste tipo de prueba es útil para determinar si un conjunto de datos determinado proviene o no de una distribución normal, que es una suposición común utilizada en muchas pruebas estadísticas, incluidas la regresión, ANOVA, pruebas t-student y muchas otras.\n\nshapiro.test(acuifero$cabeza)\n\n\n    Shapiro-Wilk normality test\n\ndata:  acuifero$cabeza\nW = 0.97666, p-value = 0.00794\n\n\n\n\n\n\n\n\nRecordatorio\n\n\n\n\\(H_{o}:\\) Hipótesis nula, indica que la muestra de los datos proviene de una distribución normal.\n\\(H_{1}:\\) Hipótesis alternativa, indica que la muestra de los no datos proviene de una distribución normal.\n\n\nEn este caso la prueba indica que la distribución de los datos no coincide con una distribución normal, ya que su \\(\\textrm{p-valor} \\leq 0.05\\), es menor al valor crítico de decisión (\\(0.0079402 \\leq 0.05\\))."
+  },
+  {
+    "objectID": "demo/demo01/demo01_aed.html#despligues-geoespaciales",
+    "href": "demo/demo01/demo01_aed.html#despligues-geoespaciales",
+    "title": "Análisis Exploratorio de Datos",
+    "section": "Despligues geoespaciales",
+    "text": "Despligues geoespaciales\nGenera cuatro gráficos, tres de dispersión y el histograma de las alturas de la cabeza piezométrica del acuífero de Wolfcamp.\n\nlibrary(sf)\n\nLinking to GEOS 3.9.1, GDAL 3.4.3, PROJ 7.2.1; sf_use_s2() is TRUE\n\nsp.acuifero <- st_as_sf(acuifero, coords = c(\"este\", \"norte\"))\nplot(sp.acuifero)\n\n\n\n\nOtra manera es mediante la library(geoR)\n\nlibrary(geoR)\n\n--------------------------------------------------------------\n Analysis of Geostatistical Data\n For an Introduction to geoR go to http://www.leg.ufpr.br/geoR\n geoR version 1.9-2 (built on 2022-08-09) is now loaded\n--------------------------------------------------------------\n\nacuifero.geo = as.geodata(acuifero,coords.col=1:2,data.col=3)\npoints(acuifero.geo, xlab= \"Coordenada x\", ylab= \"Coordenada y\")\n\n\n\n\nFigura 3: Ubicación de los puntos de muestreo\n\n\n\n\nLa representación incluso puede realizarse mediante contornos.\n\nlibrary(akima)\nint.aq=interp(x=acuifero$este,y=acuifero$norte,z=acuifero$cabeza)\ncontour(int.aq)\npoints(acuifero$este,acuifero$norte)\n\n\n\n\nFigura 4: Contorno de los sitios de muestreo\n\n\n\n\nOtras formas de representación mediante un interpolador\n\nimage(int.aq)\n\n\n\n\nFigura 5: Interpolación de los sitios de muestreo\n\n\n\n\nTambién, mediante una perspectiva en tres dimensiones del límite superior del acuífero.\n\npersp(int.aq$x,int.aq$y,int.aq$z,xlab=\"este\" ,ylab=\"norte\",\n      zlab=\"cabezas piezométricas\",phi=30,theta=20,col=\"lightblue\",\n      expand=.5,ticktype=\"detailed\")\n\n\n\n\nFigura 6: Perspectiva en 3D de los sitios de muestreo"
+  },
+  {
+    "objectID": "demo/demo02/demo02_ml.html",
+    "href": "demo/demo02/demo02_ml.html",
+    "title": "Análisis de regresión lineal",
+    "section": "",
+    "text": "El análisis de regresión es un grupo de procesos estadísticos para determinar la relación entre las variables del conjunto de datos. Generalmente, el análisis de regresión se utiliza para determinar la relación entre las variables explicativas y respuesta del conjunto de datos.\nEl análisis de regresión ayuda a comprender cómo cambian las variables respuesta cuando una de las variables explicativas cambia y otras variables se mantienen constantes. Esto ayuda a construir un modelo de regresión y, además, ayuda a pronosticar los valores con respecto a un cambio en una de las variables explicativas.\nExisten 4 tipos de técnicas de análisis de regresión:\n\nregresión lineal,\nregresión logística,\nregresión logística multinomial y\nregresión logística ordinal.\n\nEn este caso se concentrará la atención en el primer tipo."
+  },
+  {
+    "objectID": "demo/demo02/demo02_ml.html#contexto-de-los-datos",
+    "href": "demo/demo02/demo02_ml.html#contexto-de-los-datos",
+    "title": "Análisis de regresión lineal",
+    "section": "Contexto de los datos",
+    "text": "Contexto de los datos\nPara este ejemplo, se usan los datos de una empresa aseguradora. Consiste en una base de datos de 1338 registros de personas (descarga de los datos).\n\nFormato\nConsiste de 7 variables:\n\n\n\n\n\n\n\nVariable\nDescripción\n\n\n\n\nage\nEdad del asegurado.\n\n\nsex\nSexo del asegurado.\n\n\nbmi\nÍndice de Masa Corporal de la persona.\n\n\nchildren\nCantidad de hijos asegurados por el seguro médico.\n\n\nsmoker\nIndicador si la persona fuma.\n\n\nregion\nRegión donde vive el asegurado en E.E.U.U.: northeast, southeast, southwest, northwest.\n\n\ncharges\nCostos médicos individuales facturados por el seguro de salud.\n\n\n\nSe procede a cargar los datos.\n\nlibrary(readr)\n#url <- \"https://drive.google.com/file/d/1EOSYAQqksn70clDAut3FqLbj0a0GMCM4/view?usp=sharing\"\n#download.file(url, destfile = \"insurance.csv\")\ninsurance <- read_csv(\"insurance.csv\")\n\nRows: 1338 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): sex, smoker, region\ndbl (4): age, bmi, children, charges\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+  },
+  {
+    "objectID": "demo/demo02/demo02_ml.html#aed",
+    "href": "demo/demo02/demo02_ml.html#aed",
+    "title": "Análisis de regresión lineal",
+    "section": "AED",
+    "text": "AED\nSe realiza una AED para revisar las características de los datos a utilizar en el análisis.\n\nResumen estadístico\n\n\nsummary(insurance)\n\n      age            sex                 bmi           children    \n Min.   :18.00   Length:1338        Min.   :15.96   Min.   :0.000  \n 1st Qu.:27.00   Class :character   1st Qu.:26.30   1st Qu.:0.000  \n Median :39.00   Mode  :character   Median :30.40   Median :1.000  \n Mean   :39.21                      Mean   :30.66   Mean   :1.095  \n 3rd Qu.:51.00                      3rd Qu.:34.69   3rd Qu.:2.000  \n Max.   :64.00                      Max.   :53.13   Max.   :5.000  \n    smoker             region             charges     \n Length:1338        Length:1338        Min.   : 1122  \n Class :character   Class :character   1st Qu.: 4740  \n Mode  :character   Mode  :character   Median : 9382  \n                                       Mean   :13270  \n                                       3rd Qu.:16640  \n                                       Max.   :63770  \n\n\nSe procede a revisar la distribución de las variables edad y IMC.\n\nlibrary(ggplot2)\nggplot(insurance, aes(x=age)) + \n  geom_histogram(binwidth = 10, \n                 colour=\"blue\", \n                 fill=\"#5588EE\") +\n  labs(x= \"Edad\", y=\"Frecuencia\" ) +\n  theme_classic()\n\nggplot(insurance, aes(x=bmi)) + \n  geom_histogram(binwidth = 5, \n                 colour=\"#E69F00\", \n                 fill=\"#FEBA4F\") +\n  labs(x= \"IMC\", y=\"Frecuencia\" ) +\n  theme_classic()\n\n\n\n\n\n\n\n(a) Distribución de la Edad\n\n\n\n\n\n\n\n(b) Distribución de la IMC\n\n\n\n\nFigura 1: Distribución de las variables"
+  },
+  {
+    "objectID": "demo/demo02/demo02_ml.html#modelo-de-regresión-lineal",
+    "href": "demo/demo02/demo02_ml.html#modelo-de-regresión-lineal",
+    "title": "Análisis de regresión lineal",
+    "section": "Modelo de regresión lineal",
+    "text": "Modelo de regresión lineal\nSe utilizan las siguientes librerías para el análisis de regresión.\n\nlibrary(car)      # funciones para el ajuste de modelos de regresión\nlibrary(visreg)   # visualiza regresiones\nlibrary(lmtest)   # prueba modelos lineales\nlibrary(corrplot) # gráfico correlaciones\nlibrary(corrgram) # más gráficos de correlaciones\n\nPrimer modelo se trata de asociar las variables edad e IMC.\n\nlibrary(knitr)\nreg01 <- lm(age ~ bmi, data=insurance)\nsummary(reg01)\n\n\nCall:\nlm(formula = age ~ bmi, data = insurance)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-26.8632 -12.5477   0.3053  11.6915  26.7248 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)    \n(Intercept) 31.48728    1.95884  16.074  < 2e-16 ***\nbmi          0.25176    0.06266   4.018 6.19e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 13.97 on 1336 degrees of freedom\nMultiple R-squared:  0.01194,   Adjusted R-squared:  0.0112 \nF-statistic: 16.15 on 1 and 1336 DF,  p-value: 6.194e-05\n\nkable(reg01$coefficients)\n\n\n\nTabla 1: Coeficentes de la correlación entre la edad y IMC.\n\n\n\nx\n\n\n\n\n(Intercept)\n31.4872787\n\n\nbmi\n0.2517577\n\n\n\n\n\n\nLas estimaciones para los parámetros del modelo: el valor de la intersección \\(( b= 31.4872787)\\) y el efecto estimado de la edad sobre el IMC \\((m=0.2517577)\\).\nEl resultados del coeficiente de correlación \\(R=0.1092719\\) y el coeficiente de determinación \\(R^2 =0.0119403\\) sugieren un asociación muy baja o nula de las variables.\n\n\n\n\n\n\nPreguntas generadoras\n\n\n\n\n¿Qué nos indica la baja asociación de las variables edad y imc?\n¿Es posible otro tipo de relación entre otras variables?\n\n\n\n\nEstratificación o niveles\nLa creación de estratos o niveles puede ayudar a observar patrones de asociación de variables, que de otra manera son difíciles de notar. En este caso se examina entre subconjuntos según sexo y la condición de fumador del asegurado. La asociación de variables es IMC con respecto a el costo de atención médica.\n\nhist.col <- c(\"#999999\", \"#E69F00\", \"#56B4E9\")\n\nggplot(insurance, aes(x=bmi, fill=sex, color=sex)) +\n  geom_histogram(binwidth = 5, position=\"identity\", alpha=0.5) +\n  labs(x= \"IMC\", y=\"Frecuencia\" ) +\n  scale_color_manual(values=hist.col)+\n  scale_fill_manual(values=hist.col) +\n  theme_bw()\n\nggplot(insurance, aes(x=bmi, fill=smoker, color=smoker)) +\n  geom_histogram(binwidth = 5,position=\"identity\", alpha=0.5) +\n  labs(x= \"IMC\", y=\"Frecuencia\" ) +\n  scale_color_manual(values= hist.col)+\n  scale_fill_manual(values= hist.col) +\n  theme_bw()\n\nggplot(insurance, aes(x=charges, fill=sex, color=sex)) +\n  geom_histogram(binwidth = 5000,position=\"identity\", alpha=0.5) +\n  labs(x= \"Prima del seguro médico\", y=\"Frecuencia\" ) +\n  scale_color_manual(values= hist.col)+\n  scale_fill_manual(values= hist.col) +\n  theme_bw()\n\nggplot(insurance, aes(x=charges, fill=smoker, color=smoker)) +\n  geom_histogram(binwidth = 5000,position=\"identity\", alpha=0.5) +\n  labs(x= \"Prima del seguro médico\", y=\"Frecuencia\" ) +\n  scale_color_manual(values= hist.col)+\n  scale_fill_manual(values= hist.col) +\n  theme_bw()\n\n\n\n\n\n\n\n(a) Histograma IMC según el sexo\n\n\n\n\n\n\n\n(b) Histograma IMC según condición de fumador\n\n\n\n\n\n\n\n\n\n(c) Histograma costos médicos según el sexo\n\n\n\n\n\n\n\n(d) Histograma costos médicos según condición de fumador\n\n\n\n\nFigura 2: Distribución de las variables\n\n\n\n\nggplot(insurance, aes(x=bmi, y=charges, fill=smoker)) +\n  geom_boxplot()+\n  scale_fill_manual(values= hist.col) +\n  labs(x=\"IMC\", y=\"Costos médicos\") +\n  theme_bw()\n\nggplot(insurance, aes(x=bmi, y=charges, fill=sex)) +\n  geom_boxplot()+\n  scale_fill_manual(values= hist.col) +\n  labs(x=\"IMC\", y=\"Costos médicos\") +\n  theme_bw()\n\n\n\n\n\n\n\n(a) Gráfico IMC por costos médicos individuales según condición de fumador.\n\n\n\n\n\n\n\n(b) Gráfico IMC por costos médicos individuales según el sexo.\n\n\n\n\nFigura 3: Relación de las variables según niveles de estratificación\n\n\n\n\n\nAnálisis de correlación por estratos\n\nlibrary(dplyr)\nlibrary(tidyr)\nmat.corr <- insurance |> \n  group_by(sex,smoker) |>\n    summarise(r=cor(bmi,charges))\nkable(mat.corr)\n\n\n\nTabla 2: Correlación de las variables IMC ~ Costos médicos individuales agrupado por su condición de fumador y el sexo de la persona.\n\n\nsex\nsmoker\nr\n\n\n\n\nfemale\nno\n0.0750925\n\n\nfemale\nyes\n0.8459098\n\n\nmale\nno\n0.0959043\n\n\nmale\nyes\n0.7693554\n\n\n\n\n\n\nTambién es posible obtener los coeficientes del modelo lineal según estrato.\n\nlibrary(broom)\nreg02 <- insurance |> \n    group_by(sex,smoker) |>\n    do(tidy(lm(charges~bmi, .)))\nkable(reg02)\n\n\n\nTabla 3: Coeficientes de correlación de las variables IMC ~ costos médicos individuales agrupado por su condición de fumador y el sexo de la persona.\n\n\n\n\n\n\n\n\n\n\n\nsex\nsmoker\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\nfemale\nno\n(Intercept)\n6407.22480\n1364.35924\n4.696142\n0.0000034\n\n\nfemale\nno\nbmi\n77.11556\n43.86509\n1.758017\n0.0793060\n\n\nfemale\nyes\n(Intercept)\n-14075.51629\n2720.22707\n-5.174390\n0.0000010\n\n\nfemale\nyes\nbmi\n1511.55493\n89.65063\n16.860505\n0.0000000\n\n\nmale\nno\n(Intercept)\n5271.76507\n1313.41927\n4.013772\n0.0000686\n\n\nmale\nno\nbmi\n91.49778\n41.84682\n2.186493\n0.0292289\n\n\nmale\nyes\n(Intercept)\n-12577.62840\n3076.25865\n-4.088612\n0.0000691\n\n\nmale\nyes\nbmi\n1448.05010\n95.95906\n15.090290\n0.0000000\n\n\n\n\n\n\nSe construye una tabla más compleja con los valores de los parámetros de los modelos creados a partir de la estratificación.\n\nreg02b <- insurance |> \n    group_by(sex,smoker) |>\n    do(tidy(cor.test(~charges+bmi, data = . )))\n\nkable(reg02b)\n\n\n\nTabla 4: Correlación de las variables IMC ~ Costos médicos individuales agrupado por su condición de fumador y el sexo de la persona.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsex\nsmoker\nestimate\nstatistic\np.value\nparameter\nconf.low\nconf.high\nmethod\nalternative\n\n\n\n\nfemale\nno\n0.0750925\n1.758017\n0.0793060\n545\n-0.0087984\n0.1579338\nPearson’s product-moment correlation\ntwo.sided\n\n\nfemale\nyes\n0.8459098\n16.860505\n0.0000000\n113\n0.7842804\n0.8910077\nPearson’s product-moment correlation\ntwo.sided\n\n\nmale\nno\n0.0959043\n2.186493\n0.0292289\n515\n0.0097493\n0.1806458\nPearson’s product-moment correlation\ntwo.sided\n\n\nmale\nyes\n0.7693554\n15.090290\n0.0000000\n157\n0.6971960\n0.8260810\nPearson’s product-moment correlation\ntwo.sided\n\n\n\n\n\n\n\n\nIdentificación de las variables más cor-relacionadas y nuevo modelo de regresión\nCon los datos anteriores (Tabla 2, Tabla 3 y Tabla 4), es posible confirmar que la condición de fumado en las personas implica una mayor asociación entre el IMC y los costos médicos individuales. Por lo cual es importante detallar más en esta relación.\n\ninsurance |> \n  drop_na(bmi,age) |> \n  filter(smoker == \"yes\") |> \n  cor.test(~charges+bmi, data = _ )\n\n\n    Pearson's product-moment correlation\n\ndata:  charges and bmi\nt = 22.496, df = 272, p-value < 2.2e-16\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.7606770 0.8442932\nsample estimates:\n      cor \n0.8064806 \n\n\n\nlibrary(ggplot2)\nlibrary(ggpubr)\n\ndat.smoker <- insurance |>\n  drop_na(bmi,age) |> \n  filter(smoker == \"yes\")\n\nreg03.plot <- ggplot(dat.smoker, aes(x=bmi, y=charges))+\n                     geom_point() +\n  geom_smooth(method=\"lm\", col=\"blue\") +\n  stat_regline_equation(label.x = 40, label.y = 20000)+\n  theme_bw() +\n  labs(x = \"IMC\", y=\"Prima del seguro médico en dólares\")\nreg03.plot\n\n`geom_smooth()` using formula 'y ~ x'\n\n\n\n\n\nFigura 4: IMC ~ costos médicos individuales en dólares en personas fumadoras\n\n\n\n\n\nreg03 <- lm(charges ~ bmi, data=dat.smoker)\n\nLas estimaciones para los parámetros del modelo 3: el valor de la intersección \\(( b= -1.3186576\\times 10^{4})\\) y el efecto estimado del IMC sobre el costo médico individual de los asegurados \\((m=1473.1062547)\\).\nEl resultados del coeficiente de correlación \\(R=0.1092719\\) y el coeficiente de determinación \\(R^2 =0.0119403\\) sugieren un asociación muy alta de las variables.\n\n\nGráficos de diagnóstico\nEs una buena idea producir también gráficos de diagnóstico para analizar los residuos del modelo y asegurarnos de que el modelo lineal sea apropiado para usar para los datos particulares con los que estamos trabajando.\n\ninfluenceIndexPlot(reg03,id=TRUE)\n\n\n\n\nFigura 5: Gráfico de diagnóstico\n\n\n\n\n\n\nGráficos de influencia\n\ninfluencePlot(reg03, id=list(method=\"identify\"))\n\n\n\n\nFigura 6: Gráfico de influencia\n\n\n\n\n\n\nPredicción de valores\nQue sucedería con mis costos médicos individuales, sí fumo y además puedo presentar los siguientes IMC: 33, 28, 20.\n\nprediccion <- predict(reg03, newdata = data.frame(bmi=c(33,28,20)))\nprediccion\n\n       1        2        3 \n35425.93 28060.40 16275.55"
+  },
+  {
+    "objectID": "index.html#descripción-del-curso",
+    "href": "index.html#descripción-del-curso",
+    "title": "Métodos Cuantitativos y Modelos en Geografía",
+    "section": "Descripción del curso",
+    "text": "Descripción del curso\nEl curso brinda a los estudiantes los conocimientos teóricos y las herramientas técnicas utilizadas en el análisis cuantitativo de temas geográficos. La primera parte del curso está enfocada a la aplicación de la técnica multivariante de datos aplicada al análisis geográfico. La segunda parte se refiere al uso de indicadores socioeconómicos y ambientales empleados en el análisis espacial. La tercera parte aborda el estudio y aplicación de los modelos más utilizados en geografía y sus aplicaciones. La práctica de este curso consiste en la aplicación de cada una de estas técnicas a casos de estudio relacionados con la temática geográfica para comprender la utilidad de ellas en la solución de problemas geográficos diferentes."
+  },
+  {
+    "objectID": "index.html#objetivos",
+    "href": "index.html#objetivos",
+    "title": "Métodos Cuantitativos y Modelos en Geografía",
+    "section": "Objetivos",
+    "text": "Objetivos\n\nDesarrollar destrezas y habilidad en el análisis espacial de problemas geográficos mediante métodos y modelos cuantitativos.\n\n\nObjetivos específicos\n\nAnalizar las distintas técnicas numéricas y cuantitativas del análisis de datos geográficos.\nAplicar métodos y modelos numéricos para cuantificar y aproximar el comportamiento espacial de los datos geográficos.\nCuantificar el comportamiento geográfico de ciertas variables mediante métodos y modelos computacionales.\nUtilizar las herramientas de inferencia estadística para interpretar y analizar los datos de una investigación científica."
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#regresión-lineal-de-variables",
+    "href": "press/press03/l03_reglm.html#regresión-lineal-de-variables",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Regresión lineal de variables",
+    "text": "Regresión lineal de variables\nLa correlación indica la fuerza y la dirección de una relación lineal y proporcionalidad entre dos variables estadísticas.\nSe considera que dos variables cuantitativas están correlacionadas cuando los valores de una de ellas varían sistemáticamente con respecto a los valores homónimos de la otra.\n\nSi tenemos dos variables (A y B) existe correlación entre ellas, sí al disminuir los valores de A lo hacen también los de B y viceversa."
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#importante",
+    "href": "press/press03/l03_reglm.html#importante",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Importante",
+    "text": "Importante\nLa correlación entre dos variables no implica, por sí misma, ninguna relación de causalidad."
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#el-coeficiente-de-correlación",
+    "href": "press/press03/l03_reglm.html#el-coeficiente-de-correlación",
+    "title": "Relación entre variables cuantitativas",
+    "section": "El Coeficiente de correlación",
+    "text": "El Coeficiente de correlación\nEl coeficiente de correlación de Pearson (\\(R\\)), se usa para cuantificar la fuerza de la relación lineal entre dos variables cuantitativas.\nEl coeficiente \\(R\\) oscila entre \\(\\{-1 : 1\\}\\)"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#características-de-r",
+    "href": "press/press03/l03_reglm.html#características-de-r",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Características de \\(R\\)",
+    "text": "Características de \\(R\\)\n\nEs independiente de cualquier unidad usada para medir las variables.\nSu valor se altera de forma importante ante la presencia de un valor extremo, como sucede con la desviación típica.\n\n\nAnte estas situaciones conviene realizar una transformación de datos que cambia la escala de medición y modera el efecto de valores extremos (como la transformación logarítmica).\n\n\nSolo establece la relación a una línea recta.\n\n\nDos variables pueden tener una relación curvilínea fuerte, a pesar de que su correlación sea pequeña. Por tanto cuando analicemos las relaciones entre dos variables debemos representarlas gráficamente y posteriormente calcular el coeficiente de correlación.\n\n\nEl coeficiente de correlación no se debe extrapolar más allá del rango de valores observado de las variables.\n\n\nLa relación existente entre X e Y puede cambiar fuera de dicho rango.\n\n\nLa correlación no implica causalidad.\n\n\nLa causalidad es un juicio de valor que requiere más información que un simple valor cuantitativo de un coeficiente de correlación."
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#ecuación",
+    "href": "press/press03/l03_reglm.html#ecuación",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Ecuación",
+    "text": "Ecuación\nExisten diversos coeficientes que miden el grado de correlación, adaptados a la naturaleza de los datos. El más conocido es el coeficiente de correlación de Pearson, que se obtiene dividiendo la covarianza de dos variables entre el producto de sus desviaciones estándar.\n\\[R_{xy}={\\frac {\\sum x_{i}y_{i}-n{\\bar {x}}{\\bar {y}}}{(n-1)s_{x}s_{y}}}={\\frac {n\\sum x_{i}y_{i}-\\sum x_{i}\\sum y_{i}}{{\\sqrt {n\\sum x_{i}^{2}-(\\sum x_{i})^{2}}}~{\\sqrt {n\\sum y_{i}^{2}-(\\sum y_{i})^{2}}}}}\\]"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#otras-formas-de-cálculo",
+    "href": "press/press03/l03_reglm.html#otras-formas-de-cálculo",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Otras formas de cálculo",
+    "text": "Otras formas de cálculo\n\nCoeficiente de correlación de Spearman\nCorrelación de Kendall\nCorrelación canónica"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#consideraciones",
+    "href": "press/press03/l03_reglm.html#consideraciones",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Consideraciones",
+    "text": "Consideraciones\n\nLas dos variables deben proceder de una muestra aleatoria de individuos.\nAl menos una de las variables debe tener una distribución normal en la población de la cual la muestra procede."
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#interpretación-de-la-fuerza",
+    "href": "press/press03/l03_reglm.html#interpretación-de-la-fuerza",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Interpretación de la fuerza",
+    "text": "Interpretación de la fuerza\n\n\n\nValor\nGrado de relación lineal\n\n\n\n\n\\(R = 1\\)\nEs lineal perfecta.\n\n\n\\(R = \\{0.8:0.99\\}\\)\nEs muy fuerte.\n\n\n\\(R = \\{0.65:0.8\\}\\)\nEs fuerte.\n\n\n\\(R = \\{0.45:0.64\\}\\)\nEs moderada.\n\n\n\\(R = \\{0.2:0.44\\}\\)\nEs débil.\n\n\n\\(R = \\{0.01:0.20\\}\\)\nEs muy débil\n\n\n\\(R = 0\\)\nNo existe asociación lineal"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#interpretación-del-sentido",
+    "href": "press/press03/l03_reglm.html#interpretación-del-sentido",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Interpretación del sentido",
+    "text": "Interpretación del sentido\nLa dirección se indica por el signo (+/-) y puede observarse en la pendiente de la ecuación de la recta o en el gráfico.\n\n\n\n\n\n\n\nSigno\nDirección\n\n\n\n\n\\(+\\)\nEs directa. Al aumentar una variable la otra aumenta.\n\n\n\\(-\\)\nEs inversa. Al aumentar una variable la otra decrece (o viceversa)."
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#el-coeficiente-de-determinación",
+    "href": "press/press03/l03_reglm.html#el-coeficiente-de-determinación",
+    "title": "Relación entre variables cuantitativas",
+    "section": "El Coeficiente de determinación",
+    "text": "El Coeficiente de determinación\nAl elevar al cuadrado el coeficiente de correlación se obtiene el coeficiente de determinación \\((R^2)\\).\n\nIndica el % de variabilidad de la variable respuesta que se explica por la relación con la variable explicativa. Utilizar más variables y mediante análisis multivariado permite identificar el efecto de estas variables en la variable respuesta (Bosque & Moreno, 1994).\n\nEl coeficiente \\(R^2\\) oscila entre \\(\\{0:1\\}\\)."
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#demostración-del-r.",
+    "href": "press/press03/l03_reglm.html#demostración-del-r.",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Demostración del R.",
+    "text": "Demostración del R.\nA continuación se realiza una demostración simple en R: En este caso son datos de una estación meteorológica con 111 registros de las variables: ozono, radiación solar, temperatura y viento.\n\nSe cargan las librerías y los datos:\n\n\nlibrary(car)      # funciones para el ajuste de modelos de regresión\nlibrary(visreg)   # visualiza regresiones\nlibrary(lmtest)   # prueba modelos lineales\nlibrary(corrplot) # gráfico correlaciones\nlibrary(corrgram) # más gráficos de correlaciones\n\ndatos <- read.table(\"ozono.txt\", header = TRUE, \n                    sep=\"\\t\", na.strings=\"NA\", dec=\".\", strip.white=TRUE)"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#visualización-de-los-datos",
+    "href": "press/press03/l03_reglm.html#visualización-de-los-datos",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Visualización de los datos",
+    "text": "Visualización de los datos\n\nscatter.smooth(x=datos$ozono, y = datos$temperatura, main = \"Ozono ~ Temperatura\", xlab=\"Ozono (O3)\", ylab = \"Temperatura (°F)\",\n               lpars = list(col = \"red\", lwd = 3, lty = 3))\n\n\nFigura 1: Gráfico de dispersión entre las variables"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#el-modelo-de-regresión-lineal",
+    "href": "press/press03/l03_reglm.html#el-modelo-de-regresión-lineal",
+    "title": "Relación entre variables cuantitativas",
+    "section": "El modelo de regresión lineal",
+    "text": "El modelo de regresión lineal\n\nm.reg1 <- lm(temperatura ~ ozono  , data = datos)\nsummary(m.reg1)\n\n\nCall:\nlm(formula = temperatura ~ ozono, data = datos)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-21.980  -4.775   1.825   4.228  12.425 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)    \n(Intercept) 69.37059    1.05151   65.97   <2e-16 ***\nozono        0.20006    0.01963   10.19   <2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 6.851 on 109 degrees of freedom\nMultiple R-squared:  0.488, Adjusted R-squared:  0.4833 \nF-statistic: 103.9 on 1 and 109 DF,  p-value: < 2.2e-16"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#gráficos-para-el-análisis-de-regresión-lineal",
+    "href": "press/press03/l03_reglm.html#gráficos-para-el-análisis-de-regresión-lineal",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Gráficos para el análisis de regresión lineal",
+    "text": "Gráficos para el análisis de regresión lineal\n\navPlots(m.reg1, id.n = 2 ,  id.cex = 0.7 ) # Grafico de regresion\n\n\nFigura 2: Gráfico de regresión"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#gráfico-de-residuales",
+    "href": "press/press03/l03_reglm.html#gráfico-de-residuales",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Gráfico de residuales",
+    "text": "Gráfico de residuales\n\nresidualPlots(m.reg1)\n\n           Test stat Pr(>|Test stat|)    \nozono        -5.8489        5.353e-08 ***\nTukey test   -5.8489        4.948e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nFigura 3: Gráfico de residuales"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#gráficos-de-diagnóstico",
+    "href": "press/press03/l03_reglm.html#gráficos-de-diagnóstico",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Gráficos de diagnóstico",
+    "text": "Gráficos de diagnóstico\n\ninfluenceIndexPlot(m.reg1,id=TRUE)\n\n\nFigura 4: Gráfico de diagnóstico"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#gráficos-de-influencia",
+    "href": "press/press03/l03_reglm.html#gráficos-de-influencia",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Gráficos de influencia",
+    "text": "Gráficos de influencia\n\ninfluencePlot(m.reg1, id=list(method=\"identify\"))\n\n\nFigura 5: Gráfico de influencia"
+  },
+  {
+    "objectID": "press/press03/l03_reglm.html#referencias",
+    "href": "press/press03/l03_reglm.html#referencias",
+    "title": "Relación entre variables cuantitativas",
+    "section": "Referencias",
+    "text": "Referencias\n\n\n\nEscuela de Ciencias Geográficas\n\n\n\nBosque, J., & Moreno, A. (1994). Prácticas de análisis exploratorio y multivariante de datos (1.ª ed.). oikos-tau."
+  }
+]

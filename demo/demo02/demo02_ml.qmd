@@ -1,0 +1,331 @@
+---
+title: "Análisis de regresión lineal"
+author: "Omar E. Barrantes Sotela"
+date: 2022-09-07
+lang: es
+format: 
+  html:
+    code-fold: false
+    code-tools: true
+self-contained: true
+editor: visual
+---
+
+## Introducción
+
+El análisis de regresión es un grupo de procesos estadísticos para determinar la relación entre las variables del conjunto de datos. Generalmente, el análisis de regresión se utiliza para determinar la relación entre las variables explicativas y respuesta del conjunto de datos.
+
+El análisis de regresión ayuda a comprender cómo cambian las variables respuesta cuando una de las variables explicativas cambia y otras variables se mantienen constantes. Esto ayuda a construir un modelo de regresión y, además, ayuda a pronosticar los valores con respecto a un cambio en una de las variables explicativas.
+
+Existen 4 tipos de técnicas de análisis de regresión:
+
+-   regresión lineal,
+
+-   regresión logística,
+
+-   regresión logística multinomial y
+
+-   regresión logística ordinal.
+
+En este caso se concentrará la atención en el primer tipo.
+
+# Demostración
+
+## Contexto de los datos
+
+Para este ejemplo, se usan los datos de una empresa aseguradora. Consiste en una base de datos de 1338 registros de personas ([descarga de los datos](https://drive.google.com/file/d/1EOSYAQqksn70clDAut3FqLbj0a0GMCM4/view?usp=sharing)).
+
+#### Formato
+
+Consiste de 7 variables:
+
+| Variable   | Descripción                                                                             |
+|------------|-----------------------------------------------------------------------------------------|
+| *age*      | Edad del asegurado.                                                                     |
+| *sex*      | Sexo del asegurado.                                                                     |
+| *bmi*      | Índice de Masa Corporal de la persona.                                                  |
+| *children* | Cantidad de hijos asegurados por el seguro médico.                                      |
+| *smoker*   | Indicador si la persona fuma.                                                           |
+| *region*   | Región donde vive el asegurado en E.E.U.U.: northeast, southeast, southwest, northwest. |
+| *charges*  | Costos médicos individuales facturados por el seguro de salud.                          |
+
+Se procede a cargar los datos.
+
+```{r}
+#| label: datos.lectura
+library(readr)
+#url <- "https://drive.google.com/file/d/1EOSYAQqksn70clDAut3FqLbj0a0GMCM4/view?usp=sharing"
+#download.file(url, destfile = "insurance.csv")
+insurance <- read_csv("insurance.csv")
+
+```
+
+## AED
+
+Se realiza una AED para revisar las características de los datos a utilizar en el análisis.
+
+-   Resumen estadístico
+
+```{r}
+#| label: resumen.datos
+summary(insurance)
+```
+
+Se procede a revisar la distribución de las variables edad y IMC.
+
+```{r}
+#| label: fig-boxplot
+#| fig-cap: Distribución de las variables
+#| fig-subcap: 
+#|   - Distribución de la Edad
+#|   - Distribución de la IMC
+#| layout-ncol: 2
+
+library(ggplot2)
+ggplot(insurance, aes(x=age)) + 
+  geom_histogram(binwidth = 10, 
+                 colour="blue", 
+                 fill="#5588EE") +
+  labs(x= "Edad", y="Frecuencia" ) +
+  theme_classic()
+
+ggplot(insurance, aes(x=bmi)) + 
+  geom_histogram(binwidth = 5, 
+                 colour="#E69F00", 
+                 fill="#FEBA4F") +
+  labs(x= "IMC", y="Frecuencia" ) +
+  theme_classic()
+
+```
+
+## Modelo de regresión lineal
+
+Se utilizan las siguientes librerías para el análisis de regresión.
+
+```{r}
+#| label: reglib
+#| message: false
+
+library(car)      # funciones para el ajuste de modelos de regresión
+library(visreg)   # visualiza regresiones
+library(lmtest)   # prueba modelos lineales
+library(corrplot) # gráfico correlaciones
+library(corrgram) # más gráficos de correlaciones
+
+```
+
+Primer modelo se trata de asociar las variables edad e IMC.
+
+```{r}
+#| label: tbl-reg01.tab
+#| tbl-cap: Coeficentes de la correlación entre la edad y IMC.
+
+library(knitr)
+reg01 <- lm(age ~ bmi, data=insurance)
+summary(reg01)
+kable(reg01$coefficients)
+
+```
+
+Las estimaciones para los parámetros del modelo: el valor de la intersección $( b= `r reg01[[1]][1]`)$ y el efecto estimado de la edad sobre el IMC $(m=`r reg01[[1]][2]`)$.
+
+El resultados del coeficiente de correlación $R=`r cor(insurance$age,insurance$bmi)`$ y el coeficiente de determinación $R^2 =`r cor(insurance$age,insurance$bmi)^2`$ sugieren un asociación muy baja o nula de las variables.
+
+::: callout-important
+## Preguntas generadoras
+
+1.  ¿Qué nos indica la baja asociación de las variables edad y imc?
+
+2.  ¿Es posible otro tipo de relación entre otras variables?
+:::
+
+### Estratificación o niveles
+
+La creación de estratos o niveles puede ayudar a observar patrones de asociación de variables, que de otra manera son difíciles de notar. En este caso se examina entre subconjuntos según sexo y la condición de fumador del asegurado. La asociación de variables es IMC con respecto a el costo de atención médica.
+
+```{r}
+#| label: fig-plotfactor
+#| message: false
+#| layout-ncol: 2
+#| layout-nrow: 2
+#| fig-cap: Distribución de las variables
+#| fig-subcap: 
+#|   -  Histograma IMC según el sexo
+#|   -  Histograma IMC según condición de fumador
+#|   -  Histograma costos médicos según el sexo
+#|   -  Histograma costos médicos según condición de fumador
+
+hist.col <- c("#999999", "#E69F00", "#56B4E9")
+
+ggplot(insurance, aes(x=bmi, fill=sex, color=sex)) +
+  geom_histogram(binwidth = 5, position="identity", alpha=0.5) +
+  labs(x= "IMC", y="Frecuencia" ) +
+  scale_color_manual(values=hist.col)+
+  scale_fill_manual(values=hist.col) +
+  theme_bw()
+
+ggplot(insurance, aes(x=bmi, fill=smoker, color=smoker)) +
+  geom_histogram(binwidth = 5,position="identity", alpha=0.5) +
+  labs(x= "IMC", y="Frecuencia" ) +
+  scale_color_manual(values= hist.col)+
+  scale_fill_manual(values= hist.col) +
+  theme_bw()
+
+ggplot(insurance, aes(x=charges, fill=sex, color=sex)) +
+  geom_histogram(binwidth = 5000,position="identity", alpha=0.5) +
+  labs(x= "Prima del seguro médico", y="Frecuencia" ) +
+  scale_color_manual(values= hist.col)+
+  scale_fill_manual(values= hist.col) +
+  theme_bw()
+
+ggplot(insurance, aes(x=charges, fill=smoker, color=smoker)) +
+  geom_histogram(binwidth = 5000,position="identity", alpha=0.5) +
+  labs(x= "Prima del seguro médico", y="Frecuencia" ) +
+  scale_color_manual(values= hist.col)+
+  scale_fill_manual(values= hist.col) +
+  theme_bw()
+
+```
+
+```{r}
+#| label: fig-boxplot2
+#| fig-cap: Relación de las variables según niveles de estratificación
+#| fig-subcap: 
+#|   - Gráfico IMC por costos médicos individuales según condición de fumador.
+#|   - Gráfico IMC por costos médicos individuales según el sexo.
+#| layout-ncol: 2
+
+ggplot(insurance, aes(x=bmi, y=charges, fill=smoker)) +
+  geom_boxplot()+
+  scale_fill_manual(values= hist.col) +
+  labs(x="IMC", y="Costos médicos") +
+  theme_bw()
+
+ggplot(insurance, aes(x=bmi, y=charges, fill=sex)) +
+  geom_boxplot()+
+  scale_fill_manual(values= hist.col) +
+  labs(x="IMC", y="Costos médicos") +
+  theme_bw()
+```
+
+### Análisis de correlación por estratos
+
+```{r}
+#| label: tbl-matcorr01
+#| tbl-cap: "Correlación de las variables IMC ~ Costos médicos individuales agrupado por su condición de fumador y el sexo de la persona."
+#| message: false
+
+library(dplyr)
+library(tidyr)
+mat.corr <- insurance |> 
+  group_by(sex,smoker) |>
+    summarise(r=cor(bmi,charges))
+kable(mat.corr)
+```
+
+También es posible obtener los coeficientes del modelo lineal según estrato.
+
+```{r}
+#| label: tbl-matcoeff
+#| tbl-cap: "Coeficientes de correlación de las variables IMC ~ costos médicos individuales agrupado por su condición de fumador y el sexo de la persona."
+
+library(broom)
+reg02 <- insurance |> 
+    group_by(sex,smoker) |>
+    do(tidy(lm(charges~bmi, .)))
+kable(reg02)
+```
+
+Se construye una tabla más compleja con los valores de los parámetros de los modelos creados a partir de la estratificación.
+
+```{r}
+#| label: tbl-matcorr02
+#| tbl-cap: "Correlación de las variables IMC ~ Costos médicos individuales agrupado por su condición de fumador y el sexo de la persona."
+#| message: false
+#| 
+reg02b <- insurance |> 
+    group_by(sex,smoker) |>
+    do(tidy(cor.test(~charges+bmi, data = . )))
+
+kable(reg02b)
+```
+
+### Identificación de las variables más cor-relacionadas y nuevo modelo de regresión
+
+Con los datos anteriores (@tbl-matcorr01, @tbl-matcoeff y @tbl-matcorr02), es posible confirmar que la condición de fumado en las personas implica una mayor asociación entre el IMC y los costos médicos individuales. Por lo cual es importante detallar más en esta relación.
+
+```{r}
+#| label: correlacion
+insurance |> 
+  drop_na(bmi,age) |> 
+  filter(smoker == "yes") |> 
+  cor.test(~charges+bmi, data = _ )
+  
+```
+
+```{r}
+#| label: fig-scatter02
+#| fig-cap: IMC ~ costos médicos individuales en dólares en personas fumadoras
+
+library(ggplot2)
+library(ggpubr)
+
+dat.smoker <- insurance |>
+  drop_na(bmi,age) |> 
+  filter(smoker == "yes")
+
+reg03.plot <- ggplot(dat.smoker, aes(x=bmi, y=charges))+
+                     geom_point() +
+  geom_smooth(method="lm", col="blue") +
+  stat_regline_equation(label.x = 40, label.y = 20000)+
+  theme_bw() +
+  labs(x = "IMC", y="Prima del seguro médico en dólares")
+reg03.plot
+
+```
+
+```{r}
+#| label: reg.model.03
+reg03 <- lm(charges ~ bmi, data=dat.smoker)
+```
+
+Las estimaciones para los parámetros del modelo 3: el valor de la intersección $( b= `r reg03[[1]][1]`)$ y el efecto estimado del IMC sobre el costo médico individual de los asegurados $(m=`r reg03[[1]][2]`)$.
+
+El resultados del coeficiente de correlación $R=`r cor(insurance$age,insurance$bmi)`$ y el coeficiente de determinación $R^2 =`r cor(insurance$age,insurance$bmi)^2`$ sugieren un asociación muy alta de las variables.
+
+### Gráficos de diagnóstico
+
+Es una buena idea producir también gráficos de diagnóstico para analizar los residuos del modelo y asegurarnos de que el modelo lineal sea apropiado para usar para los datos particulares con los que estamos trabajando.
+
+```{r}
+#| label: fig-influencia01
+#| fig-cap: Gráfico de diagnóstico
+#| message: false
+#| echo: true
+#| code-line-numbers: true
+influenceIndexPlot(reg03,id=TRUE)
+
+```
+
+### Gráficos de influencia
+
+```{r}
+#| label: fig-influencia02
+#| fig-cap: Gráfico de influencia
+#| message: false
+#| echo: true
+#| code-line-numbers: true
+
+influencePlot(reg03, id=list(method="identify"))
+```
+
+### Predicción de valores
+
+Que sucedería con mis costos médicos individuales, sí fumo y además puedo presentar los siguientes IMC: 33, 28, 20.
+
+```{r}
+#| label: prediccion
+prediccion <- predict(reg03, newdata = data.frame(bmi=c(33,28,20)))
+prediccion
+
+```
