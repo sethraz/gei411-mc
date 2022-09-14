@@ -13,5 +13,7 @@
       #href: ../temas/c01_intro.qmd
     - text: Relación entre variables cuantitativas
       href: ../press/press03/l03_reglm.qmd
+    - text: Autocorrelación espacial
+      href: ../press/press04/l04_autocor_espacial.qmd
 
     

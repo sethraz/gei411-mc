@@ -40,6 +40,7 @@ website:
         - section: "Presentaciones"
           contents: 
             - ./press/press03/l03_reglm.qmd
+            - ./press/press04/l04_autocor_espacial.qmd
             
 
 format:

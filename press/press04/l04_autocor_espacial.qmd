@@ -1,0 +1,249 @@
+---
+title: "Autocorrelación espacial"
+subtitle: "Leccion 04"
+author: "Omar E. Barrantes Sotela"
+format:
+  revealjs: 
+    slide-number: true
+    preview-links: auto
+    scrollable: true
+    touch: true
+    logo: fig/ecguna.svg
+    css: styles.css
+    footer: "Escuela de Ciencias Geográficas"
+    self-contained: true
+lang: es
+bibliography: Ref.bib
+csl: apa.csl
+editor: visual
+---
+
+## Importancia
+
+::: small
+::: {.fragment fragment-index="1"}
+La autocorrelación espacial es un procedimiento intrínsecamente geográfico. Ayuda a establecer el **comportamiento** de la información georreferenciada a *diferentes escalas*, en particular el tipo de asociación existente entre **unidades espaciales vecinas**.
+:::
+
+::: {.fragment fragment-index="2"}
+Capacidad para estudiar la **forma** en que un **fenómeno** se **irradia** a través de las *unidades espaciales*, y si tal conducta corresponde a algún *modelo de difusión* conocido o bien registra la segregación espacial de alguna característica.
+:::
+
+::: {.fragment fragment-index="3"}
+Refleja el **grado** en que objetos o actividades en una unidad geográfica son **similares** a los objetos o actividades en **unidades geográficas próximas**.
+:::
+:::
+
+## Ancedentes históricos
+
+::: columns
+::: {.column width="60%"}
+::: small
+El **Índice de Moran** (*Moran's I*) fue desarrollado a finales de los años 40's por **Patrick Alfred Pierce Moran**. Estadístico australiano, que es más conocido por sus contribuciones a la genética de poblaciones.
+
+En la actualidad es ampliamente utilizado en la Geografía, por medio de los SIG. Destacan aplicaciones en los campos de la Geografía de la salud y humana.
+:::
+:::
+
+::: {.column width="40%"}
+![Paddy Moran](fig/PaddyMoran2.jpg){fig-align="center"}
+:::
+:::
+
+# Fundamento teórico
+
+## Primera Ley de la Geografía
+
+El principio de autocorrelación espacial, tiene sustento en el **principio de Tobler** [@Tobler1970; @Miller2004], que plantea:
+
+::: columns
+::: {.column width="90%" align="center"}
+::: fragment
+**Todas las cosas están relacionadas entre sí, pero las cosas más próximas en el espacio tienen una relación mayor que las distantes.**
+:::
+:::
+:::
+
+::: fragment
+> Es un concepto similar al de **dependencia espacial** que constituye la base de la **geoestadística**.
+:::
+
+# ¿Qué es un vecino?
+
+## Vencidad
+
+::: small
+La mayoría de los análisis de AE se consideran las **relaciones de vecinos próximos**, ya que define la **matriz de pesos** de las unidades espaciales. De ahí la importancia de establecer los **criterios de vecindad**. Depende del tipo de representación espacial raster (**celdas**) o vector (**puntos-segmentos-polígonos**)
+
+-   Unidades espaciales que limitan con los vértices de otros elementos.
+-   Unidades espaciales que limitan con los segmentos de otros elementos.
+-   Unidades a un determinado radio o distancia.
+:::
+
+## Patrones para analizar la vencindad
+
+Es posible usar la lógica del movimiento de las piezas del ajedrez.
+
+::: columns
+::: {.column width="33%"}
+![Alfil](./fig/Chess_Bishop.svg){fig-align="center"}
+:::
+
+::: {.column width="33%"}
+![Torre](./fig/Chess_Rock.svg){fig-align="center"}
+:::
+
+::: {.column width="33%"}
+![Reina](./fig/Chess_Queen.svg){fig-align="center"}
+:::
+:::
+
+## Demostración
+
+::: columns
+::: {.column width="100%"}
+![Demostración de vencindad según vértices o segmentos. ](./fig/diagram.svg){fig-align="center" width="650"}
+:::
+:::
+
+# Definición I Moran
+
+## Estadística de Producto cruzado
+
+$$
+I = \frac{N}{W} \frac{\sum _{i}\sum _{j}w_{ij}(x_{i}-{\bar {x}})(x_{j} - \bar{x})} {\sum _{i}(x_{i}-{\bar{x}})^{2}}
+$$ 
+
+::: callout-note 
+## Nota
+
+-   Se puede sustituir por $z = (x_{i}-{\bar {x}})$: la desviación desde la media.
+
+-   Similar al coeficiente de correlación.
+
+-   Valor depende de la matriz de pesos $W$. 
+
+:::
+
+## Valor esperado
+
+Se calcula de la siguiente manera:
+
+$$E(I)=\frac{-1}{N-1}$$
+
+## I Moran (Dispersión)
+
+El I Moran tiene el mismo intervalo del coeficiente de correlación.
+
+::: columns
+::: {.column width="55%"}
+-   -1 : Es una agrupación perfecta de valores disimiles (Se puede considerar como una dispersión perfecta).
+:::
+
+::: {.column width="45%"}
+![Patrón Disperso](./fig/IMoran_disperso.svg){fig-align="center"}
+:::
+:::
+
+## I Moran (Sin Autocorrelación)
+
+El I Moran tiene el mismo intervalo del coeficiente de correlación.
+
+::: columns
+::: {.column width="55%"}
+-   0 : No existe autocorrelación (aleatoriedad perfecta).
+:::
+
+::: {.column width="45%"}
+![Patrón Aleatorio](./fig/IMoran_aleatorio.svg){fig-align="center"}
+:::
+:::
+
+## I Moran (Agrupación)
+
+El I Moran tiene el mismo intervalo del coeficiente de correlación.
+
+::: columns
+::: {.column width="55%"}
+-   +1 : Indica una agrupación perfecta de valores similares (es lo opuesto a la dispersión).
+:::
+
+::: {.column width="45%"}
+![Patrón Agrupado](./fig/IMoran_agrupado.svg){fig-align="center"}
+:::
+:::
+
+## Matriz de dispersión AE
+
+En el año de 1993 Luc Anselin presenta el **Moran Scatterplot** (GeoDa), una herramienta de análisis que permite observar en un gráfico de dispersión el comportamiento de cada unidad espacial.
+
+## El Análisis local del I Moran
+
+::: small
+Esta novedad fue uno de los primeros pasos hacia el **análisis local**, es decir la desagregación del valor global de AE. El gráfico de dispersión se puede dividir en **cuatro cuadrantes** comenzando por el primero en la parte superior derecha y siguiendo en sentido de las agujas del reloj con los siguientes cuadrantes.
+:::
+
+![Gráfico de dispersión](./fig/Scatter_AE.svg){fig-align="center"}
+
+## El gráfico de dispersión (I Parte)
+
+::: small
+::: columns
+::: {.column width="55%"}
+
+:::: {.fragment .semi-fade-out}
+-   **Cuadrante I**: Unidades espaciales con **valores superiores a la media** que, a su vez, también cuentan con vecinos con valores altos (situación **alto-alto**, también conocidos como **hot spots**).
+::::
+
+:::: {.fragment .fade-in-then-semi-out}
+-   **Cuadrante III**: La situación inversa al cuadrante I (situación **bajo-bajo**, también denominados **cold spots**). Ambos cuadrantes permiten detectar los *clusters* o agrupamientos de unidades espaciales con valores similares a los de sus vecinos.
+::::
+
+:::
+
+::: {.column width="45%"}
+![Gráfico de dispersión](./fig/Scatter_AE.svg){fig-align="center"}
+:::
+:::
+::::
+
+## El gráfico de dispersión (II Parte)
+
+:::: small
+::: columns
+::: {.column width="55%"}
+::: {.fragment .semi-fade-out}
+-   **Cuadrante IV**: Están los **outliers espaciales** responden a contextos mixtos. Unidades espaciales con valores bajos (inferiores a la media) con vecinos que registran valores altos (situación **bajo-alto**).
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+-   **Cuadrante II**: El escenario opuesto al cuadrante IV (situación **alto-bajo**).	
+:::
+
+:::
+
+::: {.column width="45%"}
+![Gráfico de dispersión](./fig/Scatter_AE.svg){fig-align="center"}
+:::
+:::
+::::
+
+## Los outliners
+
+La importancia de los **outliers** radica en que **NO** responden al *principio de AE* ya que el valor de las unidades espaciales que poseen a estas características se diferencia de los valores de sus vecinos. Además, por su carácter atípico sirven, para **detectar errores** en el ingreso de la información, ya sea de forma accidental o deliberada.
+
+## Reflexión
+
+:::: small
+::: columns
+::: {.column width="95%" align="center"}
+*"Ahora, la razón por la que creemos que la informática es sobre computadoras es más o menos la misma razón por la que los egipcios pensaban que la geometría era sobre instrumentos topográficos. Y es decir, cuando un campo recién comienza y realmente no lo entiendes muy bien, es muy fácil confundir la esencia de lo que estás haciendo con las herramientas que usas."*
+:::
+:::
+Hal Abelson
+::::
+
+## ¿Preguntas?
+
+
+## Referencias
