@@ -18,6 +18,7 @@ website:
       - text: "Presentaciones"
         menu:
           - ./press/press03/l03_reglm.qmd
+          - ./press/press04/l04_autocor_espacial.qmd
       - about.qmd
   right:
       - icon: twitter
