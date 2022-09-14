@@ -1,2 +1,2 @@
-# GEI-429-Teledeteccion
-Curso GEI-429: Teledetección
+# GEI-411-Métodos cuantitativos y modelos en Geografía
+Curso GEI-411: Métodos cuantitativos y modelos en Geografía

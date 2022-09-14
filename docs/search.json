@@ -229,5 +229,138 @@
     "title": "Relación entre variables cuantitativas",
     "section": "Referencias",
     "text": "Referencias\n\n\n\nEscuela de Ciencias Geográficas\n\n\n\nBosque, J., & Moreno, A. (1994). Prácticas de análisis exploratorio y multivariante de datos (1.ª ed.). oikos-tau."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#importancia",
+    "href": "press/press04/l04_autocor_espacial.html#importancia",
+    "title": "Autocorrelación espacial",
+    "section": "Importancia",
+    "text": "Importancia\n\n\nLa autocorrelación espacial es un procedimiento intrínsecamente geográfico. Ayuda a establecer el comportamiento de la información georreferenciada a diferentes escalas, en particular el tipo de asociación existente entre unidades espaciales vecinas.\n\n\nCapacidad para estudiar la forma en que un fenómeno se irradia a través de las unidades espaciales, y si tal conducta corresponde a algún modelo de difusión conocido o bien registra la segregación espacial de alguna característica.\n\n\nRefleja el grado en que objetos o actividades en una unidad geográfica son similares a los objetos o actividades en unidades geográficas próximas."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#ancedentes-históricos",
+    "href": "press/press04/l04_autocor_espacial.html#ancedentes-históricos",
+    "title": "Autocorrelación espacial",
+    "section": "Ancedentes históricos",
+    "text": "Ancedentes históricos\n\n\n\nEl Índice de Moran (Moran’s I) fue desarrollado a finales de los años 40’s por Patrick Alfred Pierce Moran. Estadístico australiano, que es más conocido por sus contribuciones a la genética de poblaciones.\nEn la actualidad es ampliamente utilizado en la Geografía, por medio de los SIG. Destacan aplicaciones en los campos de la Geografía de la salud y humana.\n\n\n\n\n\nPaddy Moran"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#primera-ley-de-la-geografía",
+    "href": "press/press04/l04_autocor_espacial.html#primera-ley-de-la-geografía",
+    "title": "Autocorrelación espacial",
+    "section": "Primera Ley de la Geografía",
+    "text": "Primera Ley de la Geografía\nEl principio de autocorrelación espacial, tiene sustento en el principio de Tobler (Miller, 2004; Tobler, 1970), que plantea:\n\n\n\nTodas las cosas están relacionadas entre sí, pero las cosas más próximas en el espacio tienen una relación mayor que las distantes.\n\n\n\n\n\nEs un concepto similar al de dependencia espacial que constituye la base de la geoestadística."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#vencidad",
+    "href": "press/press04/l04_autocor_espacial.html#vencidad",
+    "title": "Autocorrelación espacial",
+    "section": "Vencidad",
+    "text": "Vencidad\n\nLa mayoría de los análisis de AE se consideran las relaciones de vecinos próximos, ya que define la matriz de pesos de las unidades espaciales. De ahí la importancia de establecer los criterios de vecindad. Depende del tipo de representación espacial raster (celdas) o vector (puntos-segmentos-polígonos)\n\nUnidades espaciales que limitan con los vértices de otros elementos.\nUnidades espaciales que limitan con los segmentos de otros elementos.\nUnidades a un determinado radio o distancia."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#patrones-para-analizar-la-vencindad",
+    "href": "press/press04/l04_autocor_espacial.html#patrones-para-analizar-la-vencindad",
+    "title": "Autocorrelación espacial",
+    "section": "Patrones para analizar la vencindad",
+    "text": "Patrones para analizar la vencindad\nEs posible usar la lógica del movimiento de las piezas del ajedrez.\n\n\n\n\n\nAlfil\n\n\n\n\n\n\nTorre\n\n\n\n\n\n\nReina"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#demostración",
+    "href": "press/press04/l04_autocor_espacial.html#demostración",
+    "title": "Autocorrelación espacial",
+    "section": "Demostración",
+    "text": "Demostración\n\n\n\n\n\nDemostración de vencindad según vértices o segmentos."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#estadística-de-producto-cruzado",
+    "href": "press/press04/l04_autocor_espacial.html#estadística-de-producto-cruzado",
+    "title": "Autocorrelación espacial",
+    "section": "Estadística de Producto cruzado",
+    "text": "Estadística de Producto cruzado\n\\[\nI = \\frac{N}{W} \\frac{\\sum _{i}\\sum _{j}w_{ij}(x_{i}-{\\bar {x}})(x_{j} - \\bar{x})} {\\sum _{i}(x_{i}-{\\bar{x}})^{2}}\n\\]\n\n\n\n\n\n\nNota\n\n\n\nSe puede sustituir por \\(z = (x_{i}-{\\bar {x}})\\): la desviación desde la media.\nSimilar al coeficiente de correlación.\nValor depende de la matriz de pesos \\(W\\)."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#valor-esperado",
+    "href": "press/press04/l04_autocor_espacial.html#valor-esperado",
+    "title": "Autocorrelación espacial",
+    "section": "Valor esperado",
+    "text": "Valor esperado\nSe calcula de la siguiente manera:\n\\[E(I)=\\frac{-1}{N-1}\\]"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#i-moran-dispersión",
+    "href": "press/press04/l04_autocor_espacial.html#i-moran-dispersión",
+    "title": "Autocorrelación espacial",
+    "section": "I Moran (Dispersión)",
+    "text": "I Moran (Dispersión)\nEl I Moran tiene el mismo intervalo del coeficiente de correlación.\n\n\n\n-1 : Es una agrupación perfecta de valores disimiles (Se puede considerar como una dispersión perfecta).\n\n\n\n\n\nPatrón Disperso"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#i-moran-sin-autocorrelación",
+    "href": "press/press04/l04_autocor_espacial.html#i-moran-sin-autocorrelación",
+    "title": "Autocorrelación espacial",
+    "section": "I Moran (Sin Autocorrelación)",
+    "text": "I Moran (Sin Autocorrelación)\nEl I Moran tiene el mismo intervalo del coeficiente de correlación.\n\n\n\n0 : No existe autocorrelación (aleatoriedad perfecta).\n\n\n\n\n\nPatrón Aleatorio"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#i-moran-agrupación",
+    "href": "press/press04/l04_autocor_espacial.html#i-moran-agrupación",
+    "title": "Autocorrelación espacial",
+    "section": "I Moran (Agrupación)",
+    "text": "I Moran (Agrupación)\nEl I Moran tiene el mismo intervalo del coeficiente de correlación.\n\n\n\n+1 : Indica una agrupación perfecta de valores similares (es lo opuesto a la dispersión).\n\n\n\n\n\nPatrón Agrupado"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#matriz-de-dispersión-ae",
+    "href": "press/press04/l04_autocor_espacial.html#matriz-de-dispersión-ae",
+    "title": "Autocorrelación espacial",
+    "section": "Matriz de dispersión AE",
+    "text": "Matriz de dispersión AE\nEn el año de 1993 Luc Anselin presenta el Moran Scatterplot (GeoDa), una herramienta de análisis que permite observar en un gráfico de dispersión el comportamiento de cada unidad espacial."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#el-análisis-local-del-i-moran",
+    "href": "press/press04/l04_autocor_espacial.html#el-análisis-local-del-i-moran",
+    "title": "Autocorrelación espacial",
+    "section": "El Análisis local del I Moran",
+    "text": "El Análisis local del I Moran\n\nEsta novedad fue uno de los primeros pasos hacia el análisis local, es decir la desagregación del valor global de AE. El gráfico de dispersión se puede dividir en cuatro cuadrantes comenzando por el primero en la parte superior derecha y siguiendo en sentido de las agujas del reloj con los siguientes cuadrantes.\n\n\nGráfico de dispersión"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#el-gráfico-de-dispersión-i-parte",
+    "href": "press/press04/l04_autocor_espacial.html#el-gráfico-de-dispersión-i-parte",
+    "title": "Autocorrelación espacial",
+    "section": "El gráfico de dispersión (I Parte)",
+    "text": "El gráfico de dispersión (I Parte)\n\n\n\n\n\nCuadrante I: Unidades espaciales con valores superiores a la media que, a su vez, también cuentan con vecinos con valores altos (situación alto-alto, también conocidos como hot spots).\n\n\n\n\nCuadrante III: La situación inversa al cuadrante I (situación bajo-bajo, también denominados cold spots). Ambos cuadrantes permiten detectar los clusters o agrupamientos de unidades espaciales con valores similares a los de sus vecinos.\n\n\n\n\n\n\nGráfico de dispersión"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#el-gráfico-de-dispersión-ii-parte",
+    "href": "press/press04/l04_autocor_espacial.html#el-gráfico-de-dispersión-ii-parte",
+    "title": "Autocorrelación espacial",
+    "section": "El gráfico de dispersión (II Parte)",
+    "text": "El gráfico de dispersión (II Parte)\n\n\n\n\n\nCuadrante IV: Están los outliers espaciales responden a contextos mixtos. Unidades espaciales con valores bajos (inferiores a la media) con vecinos que registran valores altos (situación bajo-alto).\n\n\n\n\nCuadrante II: El escenario opuesto al cuadrante IV (situación alto-bajo).\n\n\n\n\n\n\n\nGráfico de dispersión"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#los-outliners",
+    "href": "press/press04/l04_autocor_espacial.html#los-outliners",
+    "title": "Autocorrelación espacial",
+    "section": "Los outliners",
+    "text": "Los outliners\nLa importancia de los outliers radica en que NO responden al principio de AE ya que el valor de las unidades espaciales que poseen a estas características se diferencia de los valores de sus vecinos. Además, por su carácter atípico sirven, para detectar errores en el ingreso de la información, ya sea de forma accidental o deliberada."
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#reflexión",
+    "href": "press/press04/l04_autocor_espacial.html#reflexión",
+    "title": "Autocorrelación espacial",
+    "section": "Reflexión",
+    "text": "Reflexión\n\n\n\n“Ahora, la razón por la que creemos que la informática es sobre computadoras es más o menos la misma razón por la que los egipcios pensaban que la geometría era sobre instrumentos topográficos. Y es decir, cuando un campo recién comienza y realmente no lo entiendes muy bien, es muy fácil confundir la esencia de lo que estás haciendo con las herramientas que usas.”\n\n\nHal Abelson"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#preguntas",
+    "href": "press/press04/l04_autocor_espacial.html#preguntas",
+    "title": "Autocorrelación espacial",
+    "section": "¿Preguntas?",
+    "text": "¿Preguntas?"
+  },
+  {
+    "objectID": "press/press04/l04_autocor_espacial.html#referencias",
+    "href": "press/press04/l04_autocor_espacial.html#referencias",
+    "title": "Autocorrelación espacial",
+    "section": "Referencias",
+    "text": "Referencias\n\n\n\nEscuela de Ciencias Geográficas\n\n\n\nMiller, H. J. (2004). Tobler’s First Law and Spatial Analysis. Annals of the Association of American Geographers, 94(2), 284-289. https://doi.org/10.1111/j.1467-8306.2004.09402005.x\n\n\nTobler, W. R. (1970). A Computer Movie Simulating Urban Growth in the Detroit Region. Economic Geography, 46, 234-240. http://www.jstor.org/stable/143141"
   }
 ]

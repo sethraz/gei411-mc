@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+
+
+
+\begin{document}
+    \begin{tikzpicture}
+    
+    %grilla
+     \draw[step=1cm, gray, very thin] (-5,-5) grid (5,5);    
+     
+     %Ejes
+     \draw[thick,->] (-5,-5) -- (5.5,-5) node[below right]{$x$};
+     \draw[thick,->] (-5,-5) -- (-5,5.5) node[below left]{$y$};
+     
+     %Punto (0)
+     \draw[fill = black] (0,-5) circle (2pt) node[below] {0};
+     \draw[fill = black] (-5,0) circle (2pt) node[left] {0};
+     
+     %Cuadrante I
+     \draw[red, thick] (0,0) rectangle (5,5);
+     \filldraw[fill= red!20, opacity = .6] (1,1) rectangle (4,4);
+     \draw (2.5,3) node[anchor=base, fill=red!20,text width=2cm,text centered]
+        {Alto en x \\
+         Alto en y \\
+        (+ +)};
+        
+     %Cuadrante II
+     \draw[blue, thick] (0,0) rectangle (5,-5);
+     \filldraw[fill= blue!20, opacity = .6] (1,-1) rectangle (4,-4);
+     \draw (2.5,-2) node[anchor=base, fill=blue!20,text width=2cm,text centered]
+        {Ato en x \\
+         Bajo en y \\
+        (+ -)};
+        
+     %Cuadrante III
+     \draw[red, thick] (0,0) rectangle (-5,-5);
+     \filldraw[fill= red!20, opacity = .6] (-1,-1) rectangle (-4,-4);
+     \draw (-2.5,-2) node[anchor=base, fill=red!20,text width=2cm,text centered]
+        {Bajo en x \\
+         Bajo en y \\
+        (- -)};
+     
+     %Cuadrante IV
+     \draw[blue, thick] (0,0) rectangle (-5,5);
+     \filldraw[fill= blue!20, opacity = .6] (-1,1) rectangle (-4,4);
+     \draw (-2.5,3) node[anchor=base, fill=blue!20,text width=2cm,text centered]
+        {Bajo en x \\
+         Alto en y \\
+        (- +)};     
+    \end{tikzpicture}
+
+ 
+ 
+\end{document}
