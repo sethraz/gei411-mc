@@ -15,6 +15,7 @@ website:
         menu:
           - ./demo/demo01/demo01_aed.qmd
           - ./demo/demo02/demo02_ml.qmd
+          - ./demo/demo03/demo03_ae.qmd
       - text: "Presentaciones"
         menu:
           - ./press/press03/l03_reglm.qmd
@@ -38,6 +39,7 @@ website:
           contents: 
             - ./demo/demo01/demo01_aed.qmd
             - ./demo/demo02/demo02_ml.qmd
+            - ./demo/demo03/demo03_ae.qmd
         - section: "Presentaciones"
           contents: 
             - ./press/press03/l03_reglm.qmd

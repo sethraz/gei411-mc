@@ -1,0 +1,372 @@
+---
+title: "Autocorrelación espacial"
+author: "Omar E. Barrantes Sotela"
+date: 2022-09-14
+lang: es
+format: 
+  html:
+    code-fold: false
+self-contained: true
+bibliography: Ref.bib
+csl: apa.csl
+editor: visual
+---
+
+# Introducción
+
+La autocorrelación espacial es un concepto importante en las estadísticas espaciales. Su fundamento teórico es lo que permite la interpolación espacial. En muchas ocasiones su calculo y propiedades son malentendidas.
+
+La autocorrelación (ya sea espacial o no) es una medida de similitud (correlación) entre observaciones cercanas. Para comprender la autocorrelación espacial, primero es útil considerar la autocorrelación temporal.
+
+# Autocorrelación temporal
+
+Si mide algo sobre el mismo objeto a lo largo del tiempo, por ejemplo, el peso de una persona, es probable que dos observaciones que estén cercanas entre sí en el tiempo también sean similares en la medición. Digamos que en un par de años su peso pasó de $50$ a $80$ kg. Es poco probable que fuera $60$ kg un día, $50$ kg el siguiente y $80$ al día siguiente. Por el contrario, probablemente subió gradualmente, con la reducción gradual ocasional, o incluso revertir en la dirección. Lo mismo puede ser cierto con su cuenta bancaria, pero eso también puede tener una tendencia mensual marcada. Para medir el grado de asociación a lo largo del tiempo, podemos calcular la correlación de cada observación con la siguiente observación.
+
+En este caso d es un vector de observaciones diarias.
+
+```{r}
+#| label: semilla
+
+set.seed(123)
+d <- sample(100, 10)
+d
+
+```
+
+## Cálculo de la auto-correlación
+
+```{r}
+#| label: fig-corr
+#| fig-cap: "Observación y su vecino (retraso) sin ordenamiento"
+a <- d[-length(d)]
+b <- d[-1]
+plot(a, b, xlab='t', ylab='t-1')
+```
+
+```{r}
+#| label: corr01
+cor(a, b) #Calculo de la correlación
+```
+
+La autocorrelación calculada anteriormente es muy pequeña. Aunque esta es una muestra aleatoria, (casi) nunca obtiene un valor de cero. Calculamos la autocorrelación de "un retraso", es decir, comparamos cada valor con su vecino inmediato y no con otros valores cercanos.
+
+Después de ordenar los números en la variable `d`, la autocorrelación se vuelve muy fuerte (como era de esperar).
+
+```{r}
+#| label: ordena
+d <- sort(d) #ordena los valores
+d
+a <- d[-length(d)]
+b <- d[-1]
+```
+
+```{r}
+#| label: fig-corr02
+#| fig-cap: "Observación y su vecino (retraso) con ordenamiento"
+
+plot(a, b, xlab='t', ylab='t-1')
+
+```
+
+```{r}
+#| label: corr03
+cor(a,b)
+```
+
+La función *acf* muestra la autocorrelación calculada de una manera ligeramente diferente para varios retrasos (es 1 para cada punto en sí mismo, muy alta cuando se compara con el vecino más cercano, y se reduce gradualmente).
+
+```{r}
+#| label: fig-acf
+#| fig-cap: "Función ACF"
+acf(d)
+```
+
+# Autocorrelación espacial
+
+El concepto de *autocorrelación espacial* es una extensión de la autocorrelación temporal. Aunque es un poco más complicado. El tiempo es unidimensional, y solo va en una dirección, siempre adelante. Los objetos espaciales tienen (al menos) dos dimensiones y formas complejas, y puede no ser obvio cómo determinar qué está "cerca".
+
+Las medidas de autocorrelación espacial describen el grado en que las observaciones (valores) en ubicaciones espaciales (ya sean puntos, áreas o celdas de trama) son similares entre sí. Entonces necesitamos dos cosas: *observaciones* y *ubicaciones*.
+
+La autocorrelación espacial en una variable puede ser exógena (es causada por otra variable espacialmente autocorrelacionada, por ejemplo, lluvia) o endógena (es causada por el proceso en juego, por ejemplo, la diseminación de una enfermedad).
+
+Una estadística comúnmente utilizada que describe la autocorrelación espacial es la **I de Moran**, y discutiremos esto aquí en detalle. Otros índices incluyen *C de Geary* y, para datos binarios, el *índice de recuento de uniones*. El *semi-variograma* también expresa la cantidad de autocorrelación espacial en un conjunto de datos (el cual se estudiará en el tema de *interpolación*) [@Barrantes2020].
+
+## Demostración
+
+```{r}
+#| label: carga.datos
+#| warning: false
+#| message: false
+
+library(rgdal)
+library(raster)
+
+#Carga un shapefile en R
+shape <- "./shp/San_Pedro_CU.shp"
+p <- readOGR(dsn = shape,layer = 'San_Pedro_CU')
+
+print(proj4string(p))  # Proyeccion del shapefile
+
+```
+
+Sí se supone el interés en la autocorrelación espacial en la variable "Necesidades Básicas Insatisfechas". Si hubiera autocorrelación espacial, las Unidades Mínimas Geocensalescon valor similar estarían agrupadas espacialmente.
+
+Se construye un diagrama de los polígonos. Se utiliza la función `coordinates` para obtener los centroides de los polígonos para colocar las etiquetas.
+
+```{r}
+#| label: fig-mapa
+#| fig-cap: Unidades espaciales
+
+par(mai=c(0,0,0,0))
+plot(p, col=2:7)
+xy <- coordinates(p)
+points(xy, cex=6, pch=20, col='white')
+text(p, 'cod', cex=1.5)
+```
+
+## Adyacencia de los polígonos
+
+Ahora necesitamos determinar qué polígonos están "cerca" y cómo cuantificar eso. Aquí usaremos la adyacencia como criterio. Para encontrar polígonos adyacentes, podemos usar el paquete `spdep`.
+
+```{r}
+#| label: adyacencia
+#| message: false
+
+library(knitr)
+library(spdep)
+w <- poly2nb(p, row.names=p$cod)
+class(w)
+
+summary(w)
+```
+
+`summary(w)` genera un resumen de los vecinos. El número promedio de vecinos (polígonos adyacentes) es 4.57, 4 con 3 enlaces, 4 con 4 enlaces, 2 con 5 enlaces, 3 con 6 enlaces y 1 con 8 (¿Cúal es ese? Respuesta: k.).
+
+Para mayores detalles se puede observar la estructura (`str`) de `w`.
+
+```{r}
+#| label: list-elementos
+str(w)
+```
+
+### Gráfico de los enlaces entre polígonos
+
+```{r}
+#| label: fig-grafos
+#| fig-cap: "Grafo de las adyacencias"
+
+plot(p, col='gray', border='blue', lwd=2) +
+plot(w, xy, col='red', lwd=2, add=TRUE)
+```
+
+Podemos transformar `w` en una matriz de ponderaciones espaciales. Una matriz de ponderaciones espaciales refleja la intensidad de la relación geográfica entre las observaciones.
+
+```{r}
+#| label: tbl-matrizpesos
+#| tbl-cap: "Matriz de ponderaciones espaciales"
+wm <- nb2mat(w, style='B')
+kable(wm)
+```
+
+# I' Moran
+
+El cálculo de la I' Moran corresponde a la siguiente formula
+
+$$ I=\frac{n} {\sum_{i=1}^{n} {(y_i - \bar{y})^2}} \frac{\sum_{i}\sum _{j}w_{ij}(y_{i}-{\bar {y}})(y_{j}-{\bar {y}})} {\sum_{i}\sum_{j}w_{ij}}
+$$
+
+Otra forma de verlo sería
+
+$$ I={\frac {n}{w}}{\frac {\sum _{i}\sum _{j}w_{ij}(y_{i}-{\bar {y}})(y_{j}-{\bar {y}})}{\sum _{i}(y_{i}-{\bar {y}})^{2}}}
+$$
+
+*I' Moran* es una versión expandida de la fórmula para calcular el coeficiente de correlación. Lo principal que se agregó es la matriz de ponderaciones espaciales.
+
+Primero se determina el número de observaciones
+
+```{r}
+n <- length(p)
+n
+```
+
+Se obtiene los valores $y$ y $\bar{y}$
+
+```{r}
+y <- p$hog_NBI_p
+ybar <- mean(y)
+```
+
+Ahora se obtiene $(y_i - \bar{y})(y_j - \bar{y})$, para todos los pares de datos. Se puede realizar con dos métodos.
+
+### Método 1
+
+```{r}
+dy <- y - ybar
+g <- expand.grid(dy, dy)
+yiyj <- g[,1] * g[,2]
+```
+
+### Método 2
+
+```{r}
+yi <- rep(dy, each=n)
+yj <- rep(dy)
+yiyj <- yi * yj
+```
+
+Se procede a obtener una matriz de los pares multiplicados
+
+```{r}
+pm <- matrix(yiyj, ncol=n)
+pm
+```
+
+Ahora es posible multiplicar esta matriz con los pesos para establecer en cero el valor para los pares que no son adyacentes.
+
+```{r}
+pmw <- pm * wm
+pmw
+```
+
+Ahora se suman los valores, para obtener un aproximado del I de Moran:
+
+$$
+\sum _{i}\sum _{j}w_{ij}(y_{i}-{\bar {y}})(y_{j}-{\bar {y}})
+$$
+
+```{r}
+spmw <- sum(pmw)
+spmw
+```
+
+El siguiente paso es dividir este valor por la suma de los pesos.
+
+```{r}
+smw <- sum(wm)
+sw  <- spmw / smw
+```
+
+Se calcula la varianza inversa de `y`
+
+```{r}
+vr <- n / sum(dy^2)
+```
+
+El último paso para calcular el **I de Moran**.
+
+```{r}
+MI <- vr * sw
+MI
+```
+
+### Valor esperado de I' Moran
+
+Esta es una forma simple (pero cruda) de estimar el valor esperado de I. de Moran, es decir, el valor que obtendría en ausencia de autocorrelación espacial (si los datos fueran espacialmente aleatorios). Por supuesto, nunca se espera eso, pero así es como se hace en las estadísticas. Se debe tener en cuenta que el valor esperado se acerca a cero si n se vuelve grande, pero que no lo suficiente para valores pequeños de n.
+
+```{r}
+EI <- -1/(n-1)
+EI
+```
+
+## Librerias para el cálculo del I' Moran
+
+Después de hacer esto *a mano*, ahora se usará el paquete `spdep` para calcular el I de Moran y realizar una prueba de significancia. Para hacer esto, se necesita crear un objeto de pesos espaciales tipo `listw` (en lugar de la matriz que utilizamos anteriormente). Para obtener el mismo valor que el anterior, usamos `style = 'B'` para usar pesos de distancia binarios `(TRUE / FALSE)`.
+
+```{r}
+ww <-  nb2listw(w, style='B')
+ww
+
+```
+
+Ahora podemos usar la función `moran`. Echa un vistazo con `?moran`. La función se define como `moran (y, ww, n, Szero (ww))`. Tenga en cuenta los argumentos impares n y S0. Creo que son raros, porque "ww" tiene esa información. De todos modos, los suministramos y funciona. Probablemente haya casos en los que tenga sentido usar otros valores.
+
+```{r}
+moran(p$hog_NBI_p, ww, n=length(ww$neighbours), S0=Szero(ww))
+
+Szero(ww)
+
+# is the same as
+pmw
+sum(pmw==0)
+```
+
+### Pruebas de significancia estadística para el I' Moran
+
+Ahora podemos probar la significancia. Primero analíticamente, usando lógica basada en regresión lineal y suposiciones.
+
+```{r}
+moran.test(p$hog_NBI_p, ww, randomisation=FALSE)
+```
+
+En lugar del enfoque anterior, debe usar la *simulación de Monte Carlo*. Ese es el método preferido (de hecho, el único método). Funciona de manera que los valores se asignan aleatoriamente a los polígonos, y se calcula el I de Moran. Esto se repite varias veces para establecer una distribución de valores esperados. El valor observado de I de Moran se compara con la distribución simulada para ver qué tan probable es que los valores observados puedan considerarse aleatorios.
+
+```{r}
+moran.mc(p$hog_NBI_p, ww, nsim=99)
+```
+
+### Diagrama de dispersión de I' Moran
+
+Se puede hacer un "diagrama de dispersión de Moran" para visualizar la autocorrelación espacial. Primero obtenemos los valores vecinos para cada valor.
+
+```{r}
+n <- length(p)
+ms <- cbind(id=rep(1:n, each=n), y=rep(y, each=n), value=as.vector(wm * y))
+```
+
+Se remueven los valor iguales a 0.
+
+```{r}
+ms <- ms[ms[,3] > 0, ]
+```
+
+Se calculan los valores de los promedios de los vecinos.
+
+```{r}
+ams <- aggregate(ms[,2:3], list(ms[,1]), FUN=mean)
+ams <- ams[,-1]
+colnames(ams) <- c('y', 'y espacialmente retrasado')
+head(ams)
+```
+
+Para finalmente graficar
+
+```{r}
+plot(ams)
+reg <- lm(ams[,2] ~ ams[,1])
+abline(reg, lwd=2)
+abline(h=mean(ams[,2]), lt=2)
+abline(v=ybar, lt=2)
+```
+
+Tenga en cuenta que la pendiente de la línea de regresión:
+
+```{r}
+coefficients(reg)[2]
+```
+
+es casi el mismo valor que el I. de Moran
+
+Aquí hay un enfoque más directo para lograr lo mismo (pero es de esperar que lo anterior aclare cómo se calcula esto en realidad). Tenga en cuenta la estandarización de filas de la matriz de ponderaciones:
+
+```{r}
+rwm <- mat2listw(wm, style='W')
+# Revisa si las filas suman hasta 1
+mat <- listw2mat(rwm)
+apply(mat, 1, sum)[1:15]
+```
+
+Se vuelve a graficar
+
+```{r}
+#| label: fig-moran.plot
+#| fig-cap: "Diagrama de dispersión del I Moran's"
+moran.plot(y, rwm)
+```
+
+*Analice el gráfico correspondiente*
+
+1.  ¿Cuál es su opinión con respecto a este método?
+
+2.  ¿Tiene importancia el análisis espacial de fenómenos mediante el **I' Moran**?
+
+# Referencias
