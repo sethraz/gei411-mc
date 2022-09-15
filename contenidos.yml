@@ -6,6 +6,8 @@
       href: ../demo/demo01/demo01_aed.qmd
     - text: Análisis de regresión lineal
       href: ../demo/demo02/demo02_ml.qmd
+    - text: Autocorrelación espacial
+      href: ../demo/demo03/demo03_ae.qmd
 - title: Presentaciones
   icon: ./fig/Presentation_Slideshow.png
   links:
